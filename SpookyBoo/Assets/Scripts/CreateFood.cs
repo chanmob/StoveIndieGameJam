@@ -8,8 +8,7 @@ public class CreateFood : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < 10; i++)
-            Debug.Log(Random.insideUnitCircle);
+
     }
 
     private IEnumerator CreateFoodCoroutine()
@@ -17,6 +16,13 @@ public class CreateFood : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(createFoodTime);
+
+            Vector2 randomPosition = Random.insideUnitSphere;// * GameManager.instance.radius;
+            randomPosition = new Vector2(randomPosition.x, Mathf.Abs(randomPosition.y));
+
+            GameObject newFood = ObjectPoolManager.instance.GetFood();
+            newFood.transform.position = randomPosition;
+            newFood.SetActive(true);
         }
     }
 }
