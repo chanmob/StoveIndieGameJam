@@ -77,6 +77,6 @@ public class OutGameMainUI : MonoBehaviour
 
     public void GamePlay()
     {
-        Debug.Log("GamePlay");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("CutScene");
     }
 }

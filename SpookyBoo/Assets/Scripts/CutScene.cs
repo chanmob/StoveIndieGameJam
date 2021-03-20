@@ -28,6 +28,7 @@ public class CutScene : MonoBehaviour
     private int len = 0;
 
     private bool _isPrinting;
+    private bool _isSceneLoad = false;
 
     private string _currentMessage;
 
@@ -38,6 +39,15 @@ public class CutScene : MonoBehaviour
         len = cutsceneDatas.Length;
 
         MouseClicked();
+    }
+
+    public void LoadInGameScene()
+    {
+        if (_isSceneLoad)
+            return;
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("InGame");
+        _isSceneLoad = true;
     }
 
     public void MouseClicked()
@@ -56,7 +66,10 @@ public class CutScene : MonoBehaviour
         else
         {
             if (idx == len)
+            {
+                LoadInGameScene();
                 return;
+            }
 
             cutsceneText.text = string.Empty;
             LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)img.transform);
