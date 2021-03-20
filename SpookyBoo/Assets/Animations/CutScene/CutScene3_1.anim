@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CutScene3
+  m_Name: CutScene3_1
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 06343c85111311d4bad7bb05a91d713b, type: 3}
+      value: {fileID: 21300000, guid: 84a3ca0fc034bd240bda5417cb5da05c, type: 3}
     - time: 0.14285715
-      value: {fileID: 21300000, guid: 6f600d29924027a4cade19eabab130db, type: 3}
+      value: {fileID: 21300000, guid: d84840d601dd1a24786dee3e483df69f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -42,8 +42,8 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 06343c85111311d4bad7bb05a91d713b, type: 3}
-    - {fileID: 21300000, guid: 6f600d29924027a4cade19eabab130db, type: 3}
+    - {fileID: 21300000, guid: 84a3ca0fc034bd240bda5417cb5da05c, type: 3}
+    - {fileID: 21300000, guid: d84840d601dd1a24786dee3e483df69f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

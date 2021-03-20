@@ -28,6 +28,7 @@ public class CutScene : MonoBehaviour
     private int len = 0;
 
     private bool _isPrinting;
+    private bool _isSceneLoad = false;
 
     private string _currentMessage;
 
@@ -42,6 +43,9 @@ public class CutScene : MonoBehaviour
 
     public void MouseClicked()
     {
+        if (_isSceneLoad)
+            return;
+
         if (_isPrinting)
         {
             if(_showTextCoroutine != null)
@@ -56,7 +60,11 @@ public class CutScene : MonoBehaviour
         else
         {
             if (idx == len)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("InGame");
+                _isSceneLoad = true;
                 return;
+            }
 
             cutsceneText.text = string.Empty;
             LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)img.transform);
