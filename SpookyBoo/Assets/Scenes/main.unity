@@ -1932,7 +1932,7 @@ MonoBehaviour:
   n_tail: 0
   parentTail: {fileID: 0}
   padding: 1
-  testTail: {fileID: 1333856665}
+  testTail: {fileID: 0}
 --- !u!114 &2036389542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2001,7 +2001,7 @@ PrefabInstance:
     - target: {fileID: 1985832069239174317, guid: 2bebfe2f5188d4847b5ced562499ac9d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.0869446
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1985832069239174317, guid: 2bebfe2f5188d4847b5ced562499ac9d,
         type: 3}

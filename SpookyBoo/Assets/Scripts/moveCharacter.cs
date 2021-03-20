@@ -17,9 +17,8 @@ public class moveCharacter : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyUp(KeyCode.T))
             gameObject.GetComponent<BooTail>().CreateTail(dir);
-
         moveUpdate();
 
     }

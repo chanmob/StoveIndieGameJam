@@ -18,12 +18,10 @@ public class GameManager : Singleton<GameManager>
     {
         deadEvent = new DeadEvent();
         curHp = MaxHP;
-        InvokeRepeating("getLoseWeight", 1, 5);
     }
 
     private void Update()
     {
-        Debug.Log(hungryPoint);
     }
 
     public void BooLevelUp()
