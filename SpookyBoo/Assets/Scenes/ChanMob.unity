@@ -355,9 +355,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   createFoodTime: 3
-  c: {fileID: 199135353}
-  ct: {fileID: 199135353}
-  g: {fileID: 0}
 --- !u!60 &199135353
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -778,6 +775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 651253325}
   - component: {fileID: 651253324}
+  - component: {fileID: 651253326}
   m_Layer: 0
   m_Name: BigBoo
   m_TagString: Untagged
@@ -849,6 +847,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &651253326
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651253323}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 6.7078633, y: -5.3329372}
+  - {x: -7.3950663, y: -5.3907976}
+  - {x: -7.1259604, y: -3.2816634}
+  - {x: -6.7782474, y: -2.0238087}
+  - {x: -6.1009383, y: -2.0238895}
+  - {x: -5.1704288, y: -1.6435056}
+  - {x: -4.5911655, y: -1.1135116}
+  - {x: -4.517433, y: -0.38481784}
+  - {x: -4.863391, y: 0.28789866}
+  - {x: -5.256128, y: 0.9614253}
+  - {x: -4.513863, y: 1.9685602}
+  - {x: -2.470734, y: 3.7071867}
+  - {x: 0.101370215, y: 4.2145596}
+  - {x: 2.0355194, y: 3.8236759}
+  - {x: 4.3022056, y: 2.2308722}
+  - {x: 5.951786, y: 0.13747764}
+  - {x: 6.6746197, y: -2.7797244}
+  - {x: 6.8002405, y: -5.3276443}
 --- !u!1 &700877105
 GameObject:
   m_ObjectHideFlags: 0
