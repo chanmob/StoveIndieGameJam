@@ -21,8 +21,9 @@ public class tail : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (parent.tag == "Player")
-            padding = 0.8f;
+        if(parent != null)
+            if (parent.tag == "Player")
+                padding = 0.8f;
         double a = Math.Pow(parent.transform.position.x - transform.position.x, 2) + Math.Pow(parent.transform.position.y - transform.position.y, 2);
         a = Math.Sqrt(a);
         if (a <= padding)

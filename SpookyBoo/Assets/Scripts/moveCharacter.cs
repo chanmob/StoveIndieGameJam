@@ -139,7 +139,7 @@ public class moveCharacter : MonoBehaviour
 
     void onDead()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
 
