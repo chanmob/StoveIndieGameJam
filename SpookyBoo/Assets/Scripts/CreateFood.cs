@@ -22,15 +22,11 @@ public class CreateFood : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("AA");
-
             yield return new WaitForSeconds(createFoodTime);
 
             GameObject newFood = ObjectPoolManager.instance.GetFood();
             newFood.transform.position = GetInsidePosition();
             newFood.SetActive(true);
-
-            Debug.Log("Create");
         }
     }
 
