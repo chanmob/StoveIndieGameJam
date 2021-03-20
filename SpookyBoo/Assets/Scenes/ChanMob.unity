@@ -1815,7 +1815,7 @@ GameObject:
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1583755412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2009,11 +2009,11 @@ GameObject:
   - component: {fileID: 1712076556}
   m_Layer: 0
   m_Name: CreateBomb
-  m_TagString: Untagged
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1712076556
 MonoBehaviour:
   m_ObjectHideFlags: 0
