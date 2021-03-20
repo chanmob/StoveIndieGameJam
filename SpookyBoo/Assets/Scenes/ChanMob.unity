@@ -2550,7 +2550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BigBoo: {fileID: 0}
-  moveSpeed: 2.5
+  moveSpeed: 2.6
   speedUp: 1.2
 --- !u!114 &2036389542
 MonoBehaviour:
@@ -2567,7 +2567,7 @@ MonoBehaviour:
   n_tail: 0
   parentTail: {fileID: 0}
   child: {fileID: 0}
-  padding: 0.1
+  padding: 0.3
 --- !u!50 &2036389543
 Rigidbody2D:
   serializedVersion: 4
