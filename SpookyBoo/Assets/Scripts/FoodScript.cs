@@ -24,7 +24,6 @@ public class FoodScript : MonoBehaviour
         switch (foodType)
         {
             case 1:
-                GameManager.instance.ChangeBigBooHungry(5);
                 Debug.Log("foodtype 1");
                 break;
             case 2:

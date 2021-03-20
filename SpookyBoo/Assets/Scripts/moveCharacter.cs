@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class moveCharacter : MonoBehaviour
 {
-    public GameObject BigBoo;
+    public GameObject BigBoo, foodCreater;
     public float moveSpeed = 0.5f, speedUp;
     public int n_needTail = 3;
     new Vector3 dir, m_scale;
@@ -20,6 +20,7 @@ public class moveCharacter : MonoBehaviour
 
     private void Update()
     {
+        GameManager.instance.getLoseWeight();
         moveUpdate();
         if (Input.GetKeyUp(KeyCode.T))
             gameObject.GetComponent<BooTail>().CreateTail(dir);
@@ -63,6 +64,7 @@ public class moveCharacter : MonoBehaviour
                 n_needTail = 999;
             moveSpeed *= speedUp;
         }
+        gameObject.GetComponent<BooTail>().tTailNum.text = transform.GetComponent<BooTail>().n_tail.ToString();
 
     }
     /*
@@ -98,12 +100,37 @@ public class moveCharacter : MonoBehaviour
             deadEvent.Dead();
         }
 
+        if (collision.tag == "Bomb")
+            deadEvent.Dead();
+
         if (collision.CompareTag("Food"))
         {
             ObjectPoolManager.instance.ReturnFood(collision.gameObject);
             gameObject.GetComponent<BooTail>().CreateTail(dir);
+            switch (foodCreater.transform.GetComponent<CreateFood>().randomIndex)
+            {
+                case 0:
+                    GameManager.instance.ChangeBigBooHungry(10);
+                    break;
+                case 1:
+                    GameManager.instance.ChangeBigBooHungry(15);
+                    break;
+                case 2:
+                    GameManager.instance.ChangeBigBooHungry(20);
+                    break;
+                case 3:
+                    GameManager.instance.ChangeBigBooHungry(25);
+                    break;
+                case 4:
+                    GameManager.instance.ChangeBigBooHungry(30);
+                    break;
+
+            }
+
         }
-        if(collision.tag == "Enemy")
+
+
+        if (collision.tag == "Enemy")
         {
             GameManager.instance.ChangeBooHp(-1);
             ObjectPoolManager.instance.ReturnEnemy(collision.GetComponent<Enemy>());

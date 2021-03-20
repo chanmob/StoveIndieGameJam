@@ -39,7 +39,6 @@ public class MainUI : MonoBehaviour
 
     public void HungrySliderRefresh(float cur)
     {
-        Debug.Log("저 실행인뎁쇼");
         hungry.value = cur / max;
     }
 }

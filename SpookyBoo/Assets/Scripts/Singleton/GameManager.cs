@@ -12,7 +12,7 @@ public class GameManager : Singleton<GameManager>
     private int booLv = 1;
 
     private int curHp;
-    private int hungryPoint = 100;
+    private float hungryPoint = 100;
 
     private void Start()
     {
@@ -44,11 +44,11 @@ public class GameManager : Singleton<GameManager>
         UIManager.instance.mainUI.HeartRefresh(curHp);
     }
 
-    private void getLoseWeight()
+    public void getLoseWeight()
     {
-        ChangeBigBooHungry(-5);
+        ChangeBigBooHungry(-0.1f);
     }
-    public void ChangeBigBooHungry(int value)
+    public void ChangeBigBooHungry(float value)
     {
         hungryPoint += value;
 

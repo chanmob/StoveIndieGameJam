@@ -5,7 +5,7 @@ using UnityEngine;
 public class CreateFood : MonoBehaviour
 {
     public float createFoodTime = 1f;
-
+    public int randomIndex;
     private PolygonCollider2D polyconCollider2D;
 
     private int layerMask = 0;
@@ -23,12 +23,13 @@ public class CreateFood : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(createFoodTime);
-
-            GameObject newFood = ObjectPoolManager.instance.GetFood();
+            randomIndex = Random.Range(0, 4);
+            GameObject newFood = ObjectPoolManager.instance.GetFood(randomIndex);
             newFood.transform.position = GetInsidePosition();
             newFood.SetActive(true);
         }
     }
+
 
     private Vector2 GetInsidePosition()
     {

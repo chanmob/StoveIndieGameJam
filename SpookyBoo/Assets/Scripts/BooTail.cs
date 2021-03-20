@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BooTail : MonoBehaviour
 {
+    public Text tTailNum;
     public int n_tail = 0;
     public GameObject parentTail, child;
     public float padding = 1;
@@ -37,6 +39,7 @@ public class BooTail : MonoBehaviour
             parentTail = tail.gameObject;
         }
         n_tail++;
+        tTailNum.text = n_tail.ToString();
     }
 
     public void DeleteTail()
