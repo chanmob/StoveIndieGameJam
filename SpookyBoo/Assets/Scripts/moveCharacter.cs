@@ -14,6 +14,16 @@ public class moveCharacter : MonoBehaviour
         deadEvent = new DeadEvent();
         deadEvent.onDead += new DeadEvent.deadHandler(onDead);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+            gameObject.GetComponent<BooTail>().CreateTail(dir);
+
+        moveUpdate();
+
+    }
+/*
     void FixedUpdate()
     {
         moveUpdate();
@@ -27,7 +37,7 @@ public class moveCharacter : MonoBehaviour
             gameObject.transform.localScale = new Vector3(-0.5f, 0.5f, 0);
         }
     }
-
+*/
     void moveUpdate()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

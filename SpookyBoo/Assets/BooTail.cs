@@ -17,7 +17,7 @@ public class BooTail : MonoBehaviour
     }
     public void CreateTail(Vector3 dir)
     {
-        Vector3 nextTailPos = new Vector3(dir.x * padding, dir.y * padding, 0);
+        Vector3 nextTailPos = new Vector3(dir.x>=0 ? -1 : 1 * (padding + parentTail.transform.position.x), dir.y>=0 ? -1 : 1 * (padding + parentTail.transform.position.y), 0);
         // 꼬리 object 꺼내와서
         GameObject tail = testTail;
         tail.transform.position = nextTailPos;
