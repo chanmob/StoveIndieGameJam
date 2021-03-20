@@ -527,8 +527,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   heartImage: []
-  tailCount: {fileID: 0}
-  hungry: {fileID: 0}
+  tailCount: {fileID: 627667248}
+  hungry: {fileID: 1825451380}
+  max: 100
 --- !u!1 &576763431
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,7 +623,7 @@ GameObject:
   - component: {fileID: 627667249}
   - component: {fileID: 627667248}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TailCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
