@@ -17,26 +17,26 @@ public class moveCharacter : MonoBehaviour
 
     private void Update()
     {
+        moveUpdate();
         if (Input.GetKeyUp(KeyCode.T))
             gameObject.GetComponent<BooTail>().CreateTail(dir);
-        moveUpdate();
 
     }
-/*
-    void FixedUpdate()
-    {
-        moveUpdate();
-        m_scale = gameObject.transform.localScale;
-        if (dir.x <= 0)
+    /*
+        void FixedUpdate()
         {
-            gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0);
+            moveUpdate();
+            m_scale = gameObject.transform.localScale;
+            if (dir.x <= 0)
+            {
+                gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0);
+            }
+            if (dir.x >= 0)
+            {
+                gameObject.transform.localScale = new Vector3(-0.5f, 0.5f, 0);
+            }
         }
-        if (dir.x >= 0)
-        {
-            gameObject.transform.localScale = new Vector3(-0.5f, 0.5f, 0);
-        }
-    }
-*/
+    */
     void moveUpdate()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -44,6 +44,7 @@ public class moveCharacter : MonoBehaviour
         dir = mousePos - gameObject.transform.position;
         dir = dir.normalized;
         gameObject.transform.Translate(dir * moveSpeed * Time.deltaTime);
+
 
     }
 
