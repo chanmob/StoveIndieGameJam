@@ -19,15 +19,18 @@ public class tail : MonoBehaviour
     }
 
 
-    private void Update()
+    private void FixedUpdate()
     {
-
+/*
         if (stop)
             moveUpdate();
         if (Math.Abs(parent.transform.position.x - transform.position.x) <= padding || Math.Abs(parent.transform.position.y - transform.position.y) <= padding)
             stop = false;
         else
             stop = true;
+            */
+
+            moveUpdate();
     }
 
     void moveUpdate()
