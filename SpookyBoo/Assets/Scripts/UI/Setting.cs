@@ -5,10 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Setting : MonoBehaviour
 {
-    public const string InGameSceneName = "";
-    public const string OutGameSceneName = "";
-
-
+    public const string InGameSceneName = "InGame";
+    public const string OutGameSceneName = "OutGame";
 
     public void Resume()
     {

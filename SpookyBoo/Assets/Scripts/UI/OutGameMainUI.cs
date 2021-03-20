@@ -72,11 +72,12 @@ public class OutGameMainUI : MonoBehaviour
 
     public void Developer()
     {
-        Debug.Log("Developer");
+        SoundManager.instance.PlaySFX("SE", 1f);
     }
 
     public void GamePlay()
     {
+        SoundManager.instance.PlaySFX("SE", 1f);
         UnityEngine.SceneManagement.SceneManager.LoadScene("CutScene");
     }
 }

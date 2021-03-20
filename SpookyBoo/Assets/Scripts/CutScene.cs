@@ -41,6 +41,11 @@ public class CutScene : MonoBehaviour
         MouseClicked();
     }
 
+    public void SkipClicked()
+    {
+        SoundManager.instance.PlaySFX("SE", 1f);
+    }
+
     public void LoadInGameScene()
     {
         if (_isSceneLoad)
