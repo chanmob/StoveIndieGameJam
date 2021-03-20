@@ -32,6 +32,13 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     [SerializeField]
     private Transform enemyParent;
 
+    [Header("Bomb")]
+    public Bomb bombPrefab;
+    private Stack<Bomb> _stack_Bomb;
+
+    [SerializeField]
+    private Transform bombParent;
+
     protected override void OnAwake()
     {
         base.OnAwake();
@@ -39,6 +46,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         _stack_Food = new Stack<GameObject>();
         _stack_Tail = new Stack<tail>();
         _stack_Enemy = new Stack<Enemy>();
+        _stack_Bomb = new Stack<Bomb>();
     }
 
     #region FOOD
@@ -136,6 +144,37 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
             _stack_Enemy.Push(enemy);
             enemy.gameObject.SetActive(true);
             enemy.transform.SetParent(enemyParent);
+        }
+    }
+    #endregion
+
+    #region Bomb
+    public Bomb GetBomb()
+    {
+        int len = _stack_Bomb.Count;
+
+        if (len == 0)
+            MakeBomb(1);
+
+        return _stack_Bomb.Pop(); ;
+    }
+
+    public void ReturnTail(Bomb bomb)
+    {
+        _stack_Bomb.Push(bomb);
+
+        if (bomb.gameObject.activeSelf)
+            bomb.gameObject.SetActive(false);
+    }
+
+    private void MakeBomb(int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            Bomb bomb = Instantiate(bombPrefab);
+            _stack_Bomb.Push(bomb);
+            bomb.gameObject.SetActive(true);
+            bomb.transform.SetParent(bombParent);
         }
     }
     #endregion
