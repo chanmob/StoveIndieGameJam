@@ -19,18 +19,26 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     [SerializeField]
     private Sprite[] tailSprite;
 
-    public GameObject tailPrefab;
-    private Stack<GameObject> _stack_Tail;
+    public tail tailPrefab;
+    private Stack<tail> _stack_Tail;
 
     [SerializeField]
     private Transform tailParent;
+
+    [Header("Enemy")]
+    public Enemy enemyPrefab;
+    private Stack<Enemy> _stack_Enemy;
+
+    [SerializeField]
+    private Transform enemyParent;
 
     protected override void OnAwake()
     {
         base.OnAwake();
 
         _stack_Food = new Stack<GameObject>();
-        _stack_Tail = new Stack<GameObject>();
+        _stack_Tail = new Stack<tail>();
+        _stack_Enemy = new Stack<Enemy>();
     }
 
     #region FOOD
@@ -68,40 +76,66 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     #endregion
 
     #region TAIL
-    public GameObject GetTail(int tailSpriteIdx = 0)
+    public tail GetTail(int tailSpriteIdx = 0)
     {
         int len = _stack_Tail.Count;
 
         if (len == 0)
             MakeTail(1);
 
-<<<<<<< HEAD
-        GameObject newTail = _stack_Tail.Pop();
-        newTail.GetComponent<SpriteRenderer>().sprite = tailSprite[tailSpriteIdx];
-=======
         tail newTail = _stack_Tail.Pop();
         newTail.gameObject.GetComponent<SpriteRenderer>().sprite = tailSprite[tailSpriteIdx];
->>>>>>> bdf349b6d8447800c55bf5f9b4dae40ae03c14d6
 
         return newTail;
     }
 
-    public void ReturnTail(GameObject tail)
+    public void ReturnTail(tail tail)
     {
         _stack_Tail.Push(tail);
 
-        if (tail.activeSelf)
-            tail.SetActive(false);
+        if (tail.gameObject.activeSelf)
+            tail.gameObject.SetActive(false);
     }
 
     private void MakeTail(int count)
     {
         for (int i = 0; i < count; i++)
         {
-            GameObject tail = Instantiate(tailPrefab);
+            tail tail = Instantiate(tailPrefab);
             _stack_Tail.Push(tail);
-            tail.SetActive(true);
+            tail.gameObject.SetActive(true);
             tail.transform.SetParent(tailParent);
+        }
+    }
+    #endregion
+
+    #region Enemy
+    public Enemy GetEnemy()
+    {
+        int len = _stack_Enemy.Count;
+
+        if (len == 0)
+            MakeEnemy(1);
+
+        return _stack_Enemy.Pop(); ;
+    }
+
+    public void ReturnTail(Enemy enemy)
+    {
+        _stack_Enemy.Push(enemy);
+
+        if (enemy.gameObject.activeSelf)
+            enemy.gameObject.SetActive(false);
+    }
+
+    private void MakeEnemy(int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            Enemy enemy = Instantiate(enemyPrefab);
+            _stack_Enemy.Push(enemy);
+            enemy.gameObject.SetActive(true);
+            enemy.transform.SetParent(enemyParent);
         }
     }
     #endregion
