@@ -23,5 +23,6 @@ public class BooTail : MonoBehaviour
         tail.transform.position = nextTailPos;
         tail.transform.SetParent(parentTail.transform);
         parentTail = tail;
+        n_tail++;
     }
 }
