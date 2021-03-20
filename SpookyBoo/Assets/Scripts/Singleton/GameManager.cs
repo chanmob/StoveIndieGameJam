@@ -6,6 +6,9 @@ public class GameManager : Singleton<GameManager>
 {
     DeadEvent deadEvent;
 
+    public Wave wave;
+    public CreateBomb cb;
+
     private const int MaxHP = 4;
 
     private int bigbooLv = 1;
@@ -20,16 +23,25 @@ public class GameManager : Singleton<GameManager>
         curHp = MaxHP;
     }
 
-    private void Update()
-    {
-    }
-
     public void BooLevelUp()
     {
         booLv++;
 
         if (booLv % 5 == 0)
+        {
             bigbooLv++;
+
+            if(bigbooLv == 2)
+            {
+                cb.gameObject.SetActive(true);
+            }
+
+            if (bigbooLv == 3)
+            {
+                wave.gameObject.SetActive(true);
+                wave.StartWaveCoroutine();
+            }
+        }
     }
 
     public void ChangeBooHp(int value)

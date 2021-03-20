@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class CreateBomb : MonoBehaviour
 {
-    public float createBombTime = 1f;
+    public float redzoneDealyTime = 30f;
+
+    public float durationTime = 10f;
+    public float createBombTime = 3f;
+
 
     [SerializeField]
     private PolygonCollider2D polyconCollider2D;
@@ -22,12 +26,30 @@ public class CreateBomb : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(createBombTime);
+            float time = 0f;
+            float curTime = 0f;
 
-            Bomb newBomb = ObjectPoolManager.instance.GetBomb();
-            newBomb.transform.position = GetInsidePosition();
-            newBomb.gameObject.SetActive(true);
-            newBomb.StartBombCoroutine();
+            while(time <= durationTime)
+            {
+                time += Time.deltaTime;
+                curTime += Time.deltaTime;
+                Debug.Log(time + " / " + curTime);
+
+                if (curTime >= createBombTime)
+                {
+                    Debug.Log("CReate");
+                    curTime = 0f;
+
+                    Bomb newBomb = ObjectPoolManager.instance.GetBomb();
+                    newBomb.transform.position = GetInsidePosition();
+                    newBomb.gameObject.SetActive(true);
+                    newBomb.StartBombCoroutine();
+                }
+
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(redzoneDealyTime);
         }
     }
 

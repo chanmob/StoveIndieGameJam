@@ -8,6 +8,7 @@ public class Wave : MonoBehaviour
 
     public float waitTime;
     public float time;
+    public float waveDelayTime;
 
     private IEnumerator waveCoroutine;
 
@@ -30,29 +31,33 @@ public class Wave : MonoBehaviour
 
     private IEnumerator WaveCoroutine()
     {
-        float randomY = Random.Range(2f, 4f);
-        Vector2 destination = startPosition + new Vector3(0, randomY);
-
-        float distance = Vector2.Distance(transform.position, destination);
-
-        while(distance > 0.05f)
+        while (true)
         {
-            distance = Vector2.Distance(transform.position, destination);
-            transform.position = Vector2.Lerp(transform.position, destination, time * Time.deltaTime);
-            yield return null;
-        }
+            float randomY = Random.Range(1.5f, 4f);
+            randomY = 4f;
+            Vector2 destination = startPosition + new Vector3(0, randomY);
 
-        yield return new WaitForSeconds(waitTime);
+            float distance = Vector2.Distance(transform.position, destination);
 
-        distance = Vector2.Distance(transform.position, startPosition);
+            while (distance > 0.05f)
+            {
+                distance = Vector2.Distance(transform.position, destination);
+                transform.position = Vector2.Lerp(transform.position, destination, time * Time.deltaTime);
+                yield return null;
+            }
 
-        while (distance > 0.05f)
-        {
+            yield return new WaitForSeconds(waitTime);
+
             distance = Vector2.Distance(transform.position, startPosition);
-            transform.position = Vector2.Lerp(transform.position, startPosition, time * Time.deltaTime);
-            yield return null;
-        }
 
-        waveCoroutine = null;
+            while (distance > 0.05f)
+            {
+                distance = Vector2.Distance(transform.position, startPosition);
+                transform.position = Vector2.Lerp(transform.position, startPosition, time * Time.deltaTime);
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(waveDelayTime);
+        }
     }
 }
