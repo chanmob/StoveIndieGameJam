@@ -19,8 +19,8 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     [SerializeField]
     private Sprite[] tailSprite;
 
-    public tail tailPrefab;
-    private Stack<tail> _stack_Tail;
+    public GameObject tailPrefab;
+    private Stack<GameObject> _stack_Tail;
 
     [SerializeField]
     private Transform tailParent;
@@ -30,7 +30,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         base.OnAwake();
 
         _stack_Food = new Stack<GameObject>();
-        _stack_Tail = new Stack<tail>();
+        _stack_Tail = new Stack<GameObject>();
     }
 
     #region FOOD
@@ -68,35 +68,35 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     #endregion
 
     #region TAIL
-    public tail GetTail(int tailSpriteIdx = 0)
+    public GameObject GetTail(int tailSpriteIdx = 0)
     {
         int len = _stack_Tail.Count;
 
         if (len == 0)
             MakeTail(1);
 
-        tail newTail = _stack_Tail.Pop();
+        GameObject newTail = _stack_Tail.Pop();
         newTail.GetComponent<SpriteRenderer>().sprite = tailSprite[tailSpriteIdx];
 
         return newTail;
     }
 
-    public void ReturnTail(tail tail)
+    public void ReturnTail(GameObject tail)
     {
         _stack_Tail.Push(tail);
 
-        if (tail.gameObject.activeSelf)
-            tail.gameObject.SetActive(false);
+        if (tail.activeSelf)
+            tail.SetActive(false);
     }
 
     private void MakeTail(int count)
     {
         for (int i = 0; i < count; i++)
         {
-            tail tail = Instantiate(tailPrefab);
+            GameObject tail = Instantiate(tailPrefab);
             _stack_Tail.Push(tail);
-            tail.gameObject.SetActive(true);
-            tail.gameObject.transform.SetParent(tailParent);
+            tail.SetActive(true);
+            tail.transform.SetParent(tailParent);
         }
     }
     #endregion

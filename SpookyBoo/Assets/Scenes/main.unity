@@ -202,6 +202,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &128488497 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1985832069239174319, guid: 2bebfe2f5188d4847b5ced562499ac9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1985832067939007798}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &128488500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128488497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f867b23b77f53f4a97bdbf25e0766a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0.5
+  dir: {x: 0, y: 0, z: 0}
+  arrive: 0
+  stop: 1
+  padding: 0.5
 --- !u!1 &153278795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,8 +1277,7 @@ MonoBehaviour:
   tailSprite:
   - {fileID: 21300000, guid: e91df3976c2c60e4cb9e03f569b573c4, type: 3}
   - {fileID: 21300000, guid: 57bb5aed5873f0c448cb82efede397cf, type: 3}
-  tailPrefab: {fileID: 1985832069239174319, guid: 2bebfe2f5188d4847b5ced562499ac9d,
-    type: 3}
+  tailPrefab: {fileID: 128488497}
   tailParent: {fileID: 1241928322}
 --- !u!4 &948481501
 Transform:
@@ -1932,7 +1954,6 @@ MonoBehaviour:
   n_tail: 0
   parentTail: {fileID: 0}
   padding: 1
-  testTail: {fileID: 0}
 --- !u!114 &2036389542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1945,7 +1966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11775c50a549ad843a8e18f5e8c97f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5
+  moveSpeed: 2
 --- !u!1 &2114516951
 GameObject:
   m_ObjectHideFlags: 0

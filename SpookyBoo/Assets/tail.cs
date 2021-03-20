@@ -7,7 +7,11 @@ public class tail : MonoBehaviour
 {
     public float moveSpeed = 3.0f;
     public Vector3 dir;
+    public bool arrive = false, stop = true;
+    public float padding;
 
+    Vector3 nextTailPos;
+    int i = 0;
     private void Update()
     {
         moveUpdate();
@@ -15,12 +19,24 @@ public class tail : MonoBehaviour
 
     void moveUpdate()
     {
-        if (transform.parent != null)
+        
+        if (transform.parent != null && arrive && i == 0)
         {
-            dir = gameObject.transform.parent.transform.position - gameObject.transform.position;
+            dir = gameObject.transform.parent.position - gameObject.transform.position;
             dir.Normalize();
-            gameObject.transform.Translate(dir * moveSpeed * Time.deltaTime);
+            if (stop)
+            {
+                gameObject.transform.Translate(dir * moveSpeed * Time.deltaTime);
+            }
+            if (gameObject.transform.parent.position.x - gameObject.transform.position.x <= padding && gameObject.transform.parent.position.y - gameObject.transform.position.y <= padding)
+                stop = false;
+            else
+                stop = true;
         }
+        i++;
+        if (i > 4)
+            i = 0;
+
     }
 }
 
