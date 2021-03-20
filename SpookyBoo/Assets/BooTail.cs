@@ -27,7 +27,7 @@ public class BooTail : MonoBehaviour
     public void CreateTail(Vector3 dir)
     {
         Vector3 nextTailPos = new Vector3(0, 0, 0);
-        GameObject tail;
+        tail tail;
 
         if (n_tail == 0)
             first = true;
@@ -45,7 +45,7 @@ public class BooTail : MonoBehaviour
         }
         nextTailPos = new Vector3(tempDir.x >= 0 ? -1 : 1 * (padding + parentTail.transform.position.x), tempDir.y >= 0 ? -1 : 1 * (padding + parentTail.transform.position.y), 0);
         tail.transform.position = new Vector3(nextTailPos.x, nextTailPos.y, nextTailPos.z);
-        parentTail = tail;
+        parentTail = tail.gameObject;
         if (tail.transform.position == new Vector3(nextTailPos.x, nextTailPos.y, nextTailPos.z))
             tail.GetComponent<tail>().arrive = true;
         n_tail++;
