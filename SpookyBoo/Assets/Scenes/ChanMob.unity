@@ -620,7 +620,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 00afb4cc545886143886f1c880f2a0f5, type: 3}
   - {fileID: 21300000, guid: dcfc8b7b498f9504a975e12f288089e3, type: 3}
   - {fileID: 21300000, guid: ca591a77269bbeb4a86e80cda9ff9a38, type: 3}
-  foodPrefab: {fileID: 9212311695654116842, guid: faeb40c0b2c9ce54b8c08882af6fd657,
+  foodPrefab: {fileID: 1403546270064001379, guid: faeb40c0b2c9ce54b8c08882af6fd657,
     type: 3}
   foodParent: {fileID: 1978849693}
   tailSprite:
