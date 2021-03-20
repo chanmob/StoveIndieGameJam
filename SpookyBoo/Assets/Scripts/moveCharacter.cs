@@ -87,7 +87,7 @@ public class moveCharacter : MonoBehaviour
         if(collision.tag == "Enemy")
         {
             GameManager.instance.ChangeBooHp(-1);
-            ObjectPoolManager.instance.ReturnTail(collision.GetComponent<Enemy>());
+            ObjectPoolManager.instance.ReturnEnemy(collision.GetComponent<Enemy>());
         }
     }
 
