@@ -33,8 +33,7 @@ public class CreateBomb : MonoBehaviour
             {
                 time += Time.deltaTime;
                 curTime += Time.deltaTime;
-                Debug.Log(time + " / " + curTime);
-
+ 
                 if (curTime >= createBombTime)
                 {
                     Debug.Log("CReate");

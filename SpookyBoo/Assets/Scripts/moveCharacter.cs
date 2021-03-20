@@ -7,6 +7,7 @@ public class moveCharacter : MonoBehaviour
     public GameObject BigBoo, foodCreater;
     public float moveSpeed = 0.5f, speedUp;
     public int n_needTail = 3;
+    int booLV, bigBooLv;
     new Vector3 dir, m_scale;
     DeadEvent deadEvent;
     SpeedEvent speedEvent;    
@@ -15,7 +16,7 @@ public class moveCharacter : MonoBehaviour
         deadEvent = new DeadEvent();
         deadEvent.onDead += new DeadEvent.deadHandler(onDead);
         speedEvent = new SpeedEvent();
-
+        booLV = bigBooLv = 0;
     }
 
     private void Update()
@@ -26,28 +27,35 @@ public class moveCharacter : MonoBehaviour
             gameObject.GetComponent<BooTail>().CreateTail(dir);
         if (Input.GetKeyUp(KeyCode.Q) && transform.GetComponent<BooTail>().n_tail >= 5)
         {
-            if (GameManager.instance.getBooLv() < 4)
+            GameManager.instance.BooLevelUp();
+            booLV += 1;
+            if (booLV < 4)
             {
                 gameObject.GetComponent<Transform>().localScale = gameObject.GetComponent<Transform>().localScale + new Vector3(0.05f, 0.05f, 0);
                 //                Boo 크기 조정
-                GameManager.instance.setBooLv(1);
                 for (int i = 0; i < 5; i++)
                     transform.GetComponent<BooTail>().DeleteTail();
             }
 
-            if (GameManager.instance.getBigBooLv() > 2)
+            if (bigBooLv >= 2)
             {
             }
-            else if (GameManager.instance.getBooLv() == 4)
+            else if (booLV==4)
             {
-                GameManager.instance.setBooLv(-4);
                 GameManager.instance.setBigBooLv(1);
+                bigBooLv++;
+                booLV = 0;
                 BigBoo.GetComponent<Transform>().localScale = BigBoo.GetComponent<Transform>().localScale + new Vector3(0.05f, 0.05f, 0);
+                for (int i = 0; i < 5; i++)
+                    transform.GetComponent<BooTail>().DeleteTail();
             }
 
-            transform.GetComponent<BooTail>().n_tail -= 5;
-            if (transform.GetComponent<BooTail>().n_tail == 0)
-                gameObject.GetComponent<BooTail>().first = true;
+            if (bigBooLv <= 2 && booLV < 4)
+            {
+                transform.GetComponent<BooTail>().n_tail -= 5;
+                if (transform.GetComponent<BooTail>().n_tail == 0)
+                    gameObject.GetComponent<BooTail>().first = true;
+            }
         }
         if (Input.GetKeyUp(KeyCode.W) && transform.GetComponent<BooTail>().n_tail >= n_needTail)
         {
