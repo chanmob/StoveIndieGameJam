@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectPoolManager : Singleton<ObjectPoolManager>
 {
     [Header("Food")]
+    [SerializeField]
     private Sprite[] foodSprite;
 
     public GameObject foodPrefab;
@@ -40,10 +41,10 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         if (len == 0)
             MakeFood(1);
 
-        GameObject newTail = _stack_Tail.Pop();
-        newTail.GetComponent<SpriteRenderer>().sprite = foodSprite[foodSpriteIdx];
+        GameObject newFood = _stack_Food.Pop();
+        newFood.GetComponent<SpriteRenderer>().sprite = foodSprite[foodSpriteIdx];
 
-        return newTail;
+        return newFood;
     }
 
     public void ReturnFood(GameObject food)
