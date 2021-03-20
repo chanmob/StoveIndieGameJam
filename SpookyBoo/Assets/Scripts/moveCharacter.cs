@@ -31,10 +31,9 @@ public class moveCharacter : MonoBehaviour
     void moveUpdate()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos -= new Vector3(0, 0, mousePos.y);
+        mousePos -= new Vector3(0, 0, mousePos.z);
         dir = mousePos - gameObject.transform.position;
         dir = dir.normalized;
-        dir = new Vector3(dir.x, dir.y, 0);
         gameObject.transform.Translate(dir * moveSpeed * Time.deltaTime);
 
     }
