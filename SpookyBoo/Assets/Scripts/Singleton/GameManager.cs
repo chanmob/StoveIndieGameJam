@@ -4,5 +4,36 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    private const int MaxHP = 4;
 
+    private int bigbooLv = 1;
+    private int booLv = 1;
+
+    private int curHp;
+
+    private void Start()
+    {
+        curHp = MaxHP;
+    }
+
+    public void BooLevelUp()
+    {
+        booLv++;
+
+        if (booLv % 5 == 0)
+            bigbooLv++;
+    }
+
+    public void ChangeBooHp(int value)
+    {
+        curHp += value;
+
+        if (curHp >= MaxHP)
+            curHp = MaxHP;
+
+        else if (curHp < 0)
+            curHp = 0;
+
+        UIManager.instance.mainUI.HeartRefresh(curHp);
+    }
 }

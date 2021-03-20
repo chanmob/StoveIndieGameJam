@@ -16,6 +16,8 @@ public class MainUI : MonoBehaviour
     public void HeartRefresh(int curHp)
     {
         int len = heartImage.Length;
+        if (curHp >= len)
+            curHp = len;
 
         for(int i = 0; i < len; i++)
         {
