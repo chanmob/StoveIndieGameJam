@@ -626,7 +626,7 @@ MonoBehaviour:
   tailSprite:
   - {fileID: 21300000, guid: 57bb5aed5873f0c448cb82efede397cf, type: 3}
   - {fileID: 21300000, guid: e91df3976c2c60e4cb9e03f569b573c4, type: 3}
-  tailPrefab: {fileID: 1373774506181015898, guid: 2bebfe2f5188d4847b5ced562499ac9d,
+  tailPrefab: {fileID: 7661858674648869692, guid: 2bebfe2f5188d4847b5ced562499ac9d,
     type: 3}
   tailParent: {fileID: 2007689417}
   enemyPrefab: {fileID: -3120937786964345294, guid: c2c9a58c3fc681e40a8e3ab5803291a1,
@@ -1025,7 +1025,7 @@ Transform:
   m_GameObject: {fileID: 651253323}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -2532,7 +2532,7 @@ Transform:
   m_GameObject: {fileID: 2036389538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.5}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -2549,9 +2549,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11775c50a549ad843a8e18f5e8c97f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BigBoo: {fileID: 0}
+  BigBoo: {fileID: 651253323}
   moveSpeed: 2.6
   speedUp: 1.2
+  n_needTail: 3
 --- !u!114 &2036389542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2568,6 +2569,7 @@ MonoBehaviour:
   parentTail: {fileID: 0}
   child: {fileID: 0}
   padding: 0.3
+  first: 1
 --- !u!50 &2036389543
 Rigidbody2D:
   serializedVersion: 4

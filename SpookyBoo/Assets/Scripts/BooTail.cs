@@ -7,7 +7,7 @@ public class BooTail : MonoBehaviour
     public int n_tail = 0;
     public GameObject parentTail, child;
     public float padding = 1;
-    bool first = true;
+    public bool first = true;
     Vector3 tempDir;
 
 
@@ -42,7 +42,8 @@ public class BooTail : MonoBehaviour
     public void DeleteTail()
     {
         GameObject tempGameObject = parentTail.GetComponent<tail>().parent;
-        ObjectPoolManager.instance.ReturnTail(parentTail.GetComponent<tail>());
+        Destroy(parentTail);
+//        ObjectPoolManager.instance.ReturnTail(parentTail.GetComponent<tail>());
         parentTail = tempGameObject.gameObject;
     }
 }

@@ -6,6 +6,7 @@ public class moveCharacter : MonoBehaviour
 {
     public GameObject BigBoo;
     public float moveSpeed = 0.5f, speedUp;
+    public int n_needTail = 3;
     new Vector3 dir, m_scale;
     DeadEvent deadEvent;
     SpeedEvent speedEvent;    
@@ -24,25 +25,43 @@ public class moveCharacter : MonoBehaviour
             gameObject.GetComponent<BooTail>().CreateTail(dir);
         if (Input.GetKeyUp(KeyCode.Q) && transform.GetComponent<BooTail>().n_tail >= 5)
         {
-            if(GameManager.instance.getBooLv() < 5)
+            if (GameManager.instance.getBooLv() < 4)
             {
+                gameObject.GetComponent<Transform>().localScale = gameObject.GetComponent<Transform>().localScale + new Vector3(0.05f, 0.05f, 0);
                 //                Boo 크기 조정
                 GameManager.instance.setBooLv(1);
+                for (int i = 0; i < 5; i++)
+                    transform.GetComponent<BooTail>().DeleteTail();
             }
-            else if(GameManager.instance.getBigBooLv()<=4)
+
+            if (GameManager.instance.getBigBooLv() > 2)
             {
-                //bigboo 크기 조절
-                GameManager.instance.setBooLv(-5);
+            }
+            else if (GameManager.instance.getBooLv() == 4)
+            {
+                GameManager.instance.setBooLv(-4);
                 GameManager.instance.setBigBooLv(1);
+                BigBoo.GetComponent<Transform>().localScale = BigBoo.GetComponent<Transform>().localScale + new Vector3(0.05f, 0.05f, 0);
             }
 
             transform.GetComponent<BooTail>().n_tail -= 5;
+            if (transform.GetComponent<BooTail>().n_tail == 0)
+                gameObject.GetComponent<BooTail>().first = true;
         }
-        if (Input.GetKeyUp(KeyCode.W) && transform.GetComponent<BooTail>().n_tail >= 1)
+        if (Input.GetKeyUp(KeyCode.W) && transform.GetComponent<BooTail>().n_tail >= n_needTail)
         {
-            transform.GetComponent<BooTail>().n_tail--;
+            for (int k = 0; k < n_needTail; k++)
+                transform.GetComponent<BooTail>().DeleteTail();
+            transform.GetComponent<BooTail>().n_tail -= n_needTail;
+            if (transform.GetComponent<BooTail>().n_tail == 0)
+                gameObject.GetComponent<BooTail>().first = true;
+            if (n_needTail == 3)
+                n_needTail = 5;
+            else if (n_needTail == 5)
+                n_needTail = 8;
+            else if (n_needTail == 8)
+                n_needTail = 999;
             moveSpeed *= speedUp;
-            transform.GetComponent<BooTail>().DeleteTail();
         }
 
     }
