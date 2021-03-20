@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 199135353}
   - component: {fileID: 199135352}
   m_Layer: 8
-  m_Name: CreateaFood
+  m_Name: CreateFood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -951,6 +951,7 @@ GameObject:
   - component: {fileID: 810911002}
   - component: {fileID: 810911001}
   - component: {fileID: 810911000}
+  - component: {fileID: 810911004}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1038,6 +1039,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &810911004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810910999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9ed3cff097ff1498f9404f86e71ff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
+  mainUI: {fileID: 468302213}
 --- !u!1 &869141883
 GameObject:
   m_ObjectHideFlags: 0
