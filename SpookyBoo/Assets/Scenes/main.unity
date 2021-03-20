@@ -1254,7 +1254,7 @@ MonoBehaviour:
   tailSprite:
   - {fileID: 21300000, guid: e91df3976c2c60e4cb9e03f569b573c4, type: 3}
   - {fileID: 21300000, guid: 57bb5aed5873f0c448cb82efede397cf, type: 3}
-  tailPrefab: {fileID: 1985832069239174319, guid: 2bebfe2f5188d4847b5ced562499ac9d,
+  tailPrefab: {fileID: 1373774506181015898, guid: 2bebfe2f5188d4847b5ced562499ac9d,
     type: 3}
   tailParent: {fileID: 1241928322}
 --- !u!4 &948481501

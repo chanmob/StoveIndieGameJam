@@ -76,7 +76,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
             MakeTail(1);
 
         tail newTail = _stack_Tail.Pop();
-        newTail.GetComponent<SpriteRenderer>().sprite = tailSprite[tailSpriteIdx];
+        newTail.gameObject.GetComponent<SpriteRenderer>().sprite = tailSprite[tailSpriteIdx];
 
         return newTail;
     }

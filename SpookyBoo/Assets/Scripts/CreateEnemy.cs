@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class CreateEnemy : MonoBehaviour
 {
+    private Transform spawnPosition;
+    private Transform idlePosition;
+
     public float chaseRadius = 1f;
     public float halfViewAngle = 30f;
 
     public float viewZ = 0;
+
+    public float createEnemyTime;
+
+    private IEnumerator CreateEnemyCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(createEnemyTime);
+        }
+    }
 
     private void OnDrawGizmosSelected()
     {
