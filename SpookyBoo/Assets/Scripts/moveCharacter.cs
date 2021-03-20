@@ -48,7 +48,7 @@ public class moveCharacter : MonoBehaviour
 
     void onDead()
     {
-        Destroy(this);
+        Destroy(gameObject);
     }
 }
 
