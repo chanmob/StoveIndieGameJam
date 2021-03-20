@@ -1277,7 +1277,12 @@ MonoBehaviour:
   tailSprite:
   - {fileID: 21300000, guid: e91df3976c2c60e4cb9e03f569b573c4, type: 3}
   - {fileID: 21300000, guid: 57bb5aed5873f0c448cb82efede397cf, type: 3}
+<<<<<<< HEAD
   tailPrefab: {fileID: 128488497}
+=======
+  tailPrefab: {fileID: 1373774506181015898, guid: 2bebfe2f5188d4847b5ced562499ac9d,
+    type: 3}
+>>>>>>> bdf349b6d8447800c55bf5f9b4dae40ae03c14d6
   tailParent: {fileID: 1241928322}
 --- !u!4 &948481501
 Transform:
