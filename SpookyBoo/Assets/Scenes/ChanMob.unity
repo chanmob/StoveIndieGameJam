@@ -2095,6 +2095,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1712076557}
   - component: {fileID: 1712076556}
+  - component: {fileID: 1712076558}
   m_Layer: 0
   m_Name: CreateBomb
   m_TagString: Bomb
@@ -2117,7 +2118,7 @@ MonoBehaviour:
   redzoneDealyTime: 30
   durationTime: 10
   createBombTime: 3
-  polyconCollider2D: {fileID: 199135353}
+  polyconCollider2D: {fileID: 1712076558}
 --- !u!4 &1712076557
 Transform:
   m_ObjectHideFlags: 0
@@ -2132,6 +2133,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1712076558
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712076555}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 4.5347147, y: -4.5898566}
+      - {x: 4.2619166, y: -0.7289062}
+      - {x: 2.1, y: 2.0567582}
+      - {x: 0.7, y: 2.5761836}
+      - {x: -1.1, y: 2.5675688}
+      - {x: -2.3666534, y: 1.7687367}
+      - {x: -3.1755004, y: -1.9080842}
+      - {x: -5.081956, y: -4.6049705}
 --- !u!1 &1762137972
 GameObject:
   m_ObjectHideFlags: 0
