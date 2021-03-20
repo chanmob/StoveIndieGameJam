@@ -11,7 +11,15 @@ public class tail : MonoBehaviour
     public float padding;
     public GameObject parent, child;
 
-    private void Update()
+
+
+    void Start()
+    {
+        parent = null;
+        child = null;
+    }
+
+    void Update()
     {
 
         if (stop)
