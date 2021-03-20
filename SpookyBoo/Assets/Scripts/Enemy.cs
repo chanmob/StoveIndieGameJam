@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
 {
     public Transform idleTransform;
 
+    private CircleCollider2D _circleCollider2D;
+
     public float idleTime;
     public float searchingTime;
     public float idleSpeed;
@@ -21,6 +23,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _anim = GetComponent<Animator>();
+        _circleCollider2D = GetComponent<CircleCollider2D>();
     }
 
     public void StartShootCoroutine()
@@ -31,7 +34,9 @@ public class Enemy : MonoBehaviour
 
     private void OnDisable()
     {
-        if(shootCoroutine != null)
+        _circleCollider2D.enabled = false;
+
+        if (shootCoroutine != null)
         {
             StopCoroutine(shootCoroutine);
             shootCoroutine = null;
@@ -53,6 +58,8 @@ public class Enemy : MonoBehaviour
         transform.position = idleTransform.position;
 
         _anim.SetTrigger("Idle");
+
+        _circleCollider2D.enabled = true;
 
         float time = 0f;
         while (time < searchingTime)
@@ -89,5 +96,20 @@ public class Enemy : MonoBehaviour
     {
         float radian = (angleInDegree - transform.eulerAngles.z) * Mathf.Deg2Rad;
         return new Vector3(Mathf.Sin(radian), Mathf.Cos(radian), 0);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("BigBoo")){
+            StopCoroutine(shootCoroutine);
+            shootCoroutine = null;
+            _anim.SetTrigger("Die");
+            _circleCollider2D.enabled = false;
+        }
+    }
+
+    public void DieAnimationFinish()
+    {
+        ObjectPoolManager.instance.ReturnEnemy(this);
     }
 }

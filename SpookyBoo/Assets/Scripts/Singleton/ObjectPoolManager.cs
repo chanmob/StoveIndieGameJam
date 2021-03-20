@@ -128,7 +128,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         return _stack_Enemy.Pop(); ;
     }
 
-    public void ReturnTail(Enemy enemy)
+    public void ReturnEnemy(Enemy enemy)
     {
         _stack_Enemy.Push(enemy);
 
