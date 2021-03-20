@@ -41,11 +41,17 @@ public class CutScene : MonoBehaviour
         MouseClicked();
     }
 
-    public void MouseClicked()
+    public void LoadInGameScene()
     {
         if (_isSceneLoad)
             return;
 
+        UnityEngine.SceneManagement.SceneManager.LoadScene("InGame");
+        _isSceneLoad = true;
+    }
+
+    public void MouseClicked()
+    {
         if (_isPrinting)
         {
             if(_showTextCoroutine != null)
@@ -61,8 +67,7 @@ public class CutScene : MonoBehaviour
         {
             if (idx == len)
             {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("InGame");
-                _isSceneLoad = true;
+                LoadInGameScene();
                 return;
             }
 
