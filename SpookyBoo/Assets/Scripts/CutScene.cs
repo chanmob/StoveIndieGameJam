@@ -8,15 +8,19 @@ public class CutScene : MonoBehaviour
     [System.Serializable]
     public class CutSceneData
     {
-        public Sprite backgroundSprite;
+        public string cutsceneKey;
         public string cutsceneString;
     }
 
     public float printDelay;
 
+    public Animator anim;
+
     public CutSceneData[] cutsceneDatas;
 
     public Image cutsceneBackground;
+
+    public Image img;
 
     public Text cutsceneText;
 
@@ -32,6 +36,8 @@ public class CutScene : MonoBehaviour
     private void Start()
     {
         len = cutsceneDatas.Length;
+
+        MouseClicked();
     }
 
     public void MouseClicked()
@@ -52,7 +58,10 @@ public class CutScene : MonoBehaviour
             if (idx == len)
                 return;
 
-            cutsceneBackground.sprite = cutsceneDatas[idx].backgroundSprite;
+            cutsceneText.text = string.Empty;
+            LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)img.transform);
+
+            anim.SetTrigger(cutsceneDatas[idx].cutsceneKey);
             _currentMessage = cutsceneDatas[idx].cutsceneString;
 
             _showTextCoroutine = ShowTextCoroutine();

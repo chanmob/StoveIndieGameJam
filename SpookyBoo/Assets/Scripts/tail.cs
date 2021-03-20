@@ -9,7 +9,7 @@ public class tail : MonoBehaviour
     public Vector3 pos, dir, des;
     public bool arrive = false, stop = true;
     public float padding;
-    public GameObject parent, child;
+    public GameObject parent = null, child = null; 
 
 
 

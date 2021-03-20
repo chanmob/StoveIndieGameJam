@@ -54,6 +54,12 @@ public class moveCharacter : MonoBehaviour
         {
             deadEvent.Dead();
         }
+
+        if (collision.CompareTag("Food"))
+        {
+            ObjectPoolManager.instance.ReturnFood(collision.gameObject);
+            gameObject.GetComponent<BooTail>().CreateTail(dir);
+        }
     }
 
     void onDead()

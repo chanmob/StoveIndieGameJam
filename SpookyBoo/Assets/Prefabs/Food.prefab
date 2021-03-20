@@ -10,10 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 5453317792475421717}
   - component: {fileID: 1267525930187160395}
+<<<<<<< HEAD
   - component: {fileID: -2864498813548732145}
+=======
+  - component: {fileID: 8240153410186514641}
+>>>>>>> c75f940e3f2bda25e411592a4f7783c3da699df6
   m_Layer: 0
   m_Name: Food
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,8 +86,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
 --- !u!61 &-2864498813548732145
 BoxCollider2D:
+=======
+--- !u!58 &8240153410186514641
+CircleCollider2D:
+>>>>>>> c75f940e3f2bda25e411592a4f7783c3da699df6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,6 +104,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
+<<<<<<< HEAD
   m_Offset: {x: 0.039360166, y: -0.113220215}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -108,3 +118,8 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6940777, y: 1.8609881}
   m_EdgeRadius: 0
+=======
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
+>>>>>>> c75f940e3f2bda25e411592a4f7783c3da699df6
