@@ -5,21 +5,21 @@ using UnityEngine;
 
 public class tail : MonoBehaviour
 {
-    public float moveSpeed = 3.0f;
+    public float moveSpeed = 3.0f, speedUp = 1.2f;
     public Vector3 pos, dir, des;
     public bool arrive = false, stop = true;
     public float padding;
-    public GameObject parent = null, child = null; 
+    public GameObject parent, child;
 
-
-
+    SpeedEvent speed;
     void Start()
     {
-        parent = null;
-        child = null;
+        speed = new SpeedEvent();
+        speed.onSpeed += new SpeedEvent.speedHandler(SpeedUpEvent);
     }
 
-    void Update()
+
+    private void Update()
     {
 
         if (stop)
@@ -38,6 +38,11 @@ public class tail : MonoBehaviour
         gameObject.transform.Translate(dir * moveSpeed * Time.deltaTime);
         
 //        stop = false;
+    }
+
+    private void SpeedUpEvent()
+    {
+        moveSpeed *= speedUp;
     }
 
 }

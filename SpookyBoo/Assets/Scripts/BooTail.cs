@@ -36,6 +36,13 @@ public class BooTail : MonoBehaviour
             tail.transform.position = parentTail.transform.position + new Vector3(-dir.x + padding, -dir.y + padding, 0);
             parentTail = tail.gameObject;
         }
+        n_tail++;
+    }
 
+    public void DeleteTail()
+    {
+        GameObject tempGameObject = parentTail.GetComponent<tail>().parent;
+        ObjectPoolManager.instance.ReturnTail(parentTail.GetComponent<tail>());
+        parentTail = tempGameObject.gameObject;
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BigBoo
   - Food
+  - tail
   layers:
   - Default
   - TransparentFX

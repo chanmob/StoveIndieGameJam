@@ -59,5 +59,21 @@ public class GameManager : Singleton<GameManager>
         UIManager.instance.mainUI.HungrySliderRefresh(hungryPoint);
 
     }
+    public int getBooLv() {
+        return booLv;
+    }
 
+    public void setBooLv(int value)
+    {
+        booLv += value;
+    }
+    public int getBigBooLv()
+    {
+        return bigbooLv;
+    }
+    public void setBigBooLv(int value)
+    {
+        if(bigbooLv<=5)
+            bigbooLv += value;
+    }
 }
