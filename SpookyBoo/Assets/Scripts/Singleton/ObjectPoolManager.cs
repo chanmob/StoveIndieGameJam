@@ -159,7 +159,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         return _stack_Bomb.Pop(); ;
     }
 
-    public void ReturnTail(Bomb bomb)
+    public void ReturnBomb(Bomb bomb)
     {
         _stack_Bomb.Push(bomb);
 

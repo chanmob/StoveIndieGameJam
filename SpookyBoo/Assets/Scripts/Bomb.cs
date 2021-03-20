@@ -6,6 +6,8 @@ public class Bomb : MonoBehaviour
 {
     public GameObject bomb;
 
+    private CircleCollider2D circleCollider2D;
+
     private Animator _anim;
 
     public float scaleTime;
@@ -15,6 +17,7 @@ public class Bomb : MonoBehaviour
     private void Start()
     {
         _anim = GetComponent<Animator>();
+        circleCollider2D = GetComponent<CircleCollider2D>();
 
         StartCoroutine(BombCoroutine());
     }
@@ -33,6 +36,8 @@ public class Bomb : MonoBehaviour
 
     private IEnumerator BombCoroutine()
     {
+        bomb.SetActive(true);
+        bomb.transform.localScale = Vector2.zero;
         float time = 0f;
         while (time < 1f)
         {
@@ -43,12 +48,14 @@ public class Bomb : MonoBehaviour
         }
 
         bomb.SetActive(false);
+        circleCollider2D.enabled = true;
         _anim.SetTrigger("Bomb");
     }
 
     public void BombAnimationFinish()
     {
         bombCoroutine = null;
-        gameObject.SetActive(false);
+        circleCollider2D.enabled = false;
+        ObjectPoolManager.instance.ReturnBomb(this);
     }
 }
