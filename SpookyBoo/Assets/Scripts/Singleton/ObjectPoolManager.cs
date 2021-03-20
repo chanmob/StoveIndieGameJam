@@ -5,17 +5,21 @@ using UnityEngine;
 public class ObjectPoolManager : Singleton<ObjectPoolManager>
 {
     [Header("Food")]
+    private Sprite[] foodSprite;
+
     public GameObject foodPrefab;
+
     private Stack<GameObject> _stack_Food;
 
     [SerializeField]
     private Transform foodParent;
 
-    [Header("Food")]
-    public GameObject tail1Prefab;
-    public GameObject tail2Prefab;
-    private Stack<GameObject> _stack_Tail1;
-    private Stack<GameObject> _stack_Tail2;
+    [Header("Tail")]
+    [SerializeField]
+    private Sprite[] tailSprite;
+
+    public GameObject tailPrefab;
+    private Stack<GameObject> _stack_Tail;
 
     [SerializeField]
     private Transform tailParent;
@@ -25,19 +29,21 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         base.OnAwake();
 
         _stack_Food = new Stack<GameObject>();
-        _stack_Tail1 = new Stack<GameObject>();
-        _stack_Tail2 = new Stack<GameObject>();
+        _stack_Tail = new Stack<GameObject>();
     }
 
     #region FOOD
-    public GameObject GetFood()
+    public GameObject GetFood(int foodSpriteIdx = 0)
     {
         int len = _stack_Food.Count;
 
         if (len == 0)
             MakeFood(1);
 
-        return _stack_Food.Pop(); ;
+        GameObject newTail = _stack_Tail.Pop();
+        newTail.GetComponent<SpriteRenderer>().sprite = foodSprite[foodSpriteIdx];
+
+        return newTail;
     }
 
     public void ReturnFood(GameObject food)
@@ -61,69 +67,35 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     #endregion
 
     #region TAIL
-    public GameObject GetTail(bool roundTail = true)
+    public GameObject GetTail(int tailSpriteIdx = 0)
     {
-        GameObject newTail = null;
-        int len = 0;
+        int len = _stack_Tail.Count;
 
-        if (roundTail)
-        {
-            len = _stack_Tail1.Count;
+        if (len == 0)
+            MakeTail(1);
 
-            if (len == 0)
-                MakeTail(1);
-
-            newTail = _stack_Tail1.Pop();
-        }
-        else
-        {
-            len = _stack_Tail2.Count;
-
-            if (len == 0)
-                MakeTail(1);
-
-            newTail = _stack_Tail2.Pop();
-        }
+        GameObject newTail = _stack_Tail.Pop();
+        newTail.GetComponent<SpriteRenderer>().sprite = tailSprite[tailSpriteIdx];
 
         return newTail;
     }
 
-    public void ReturnTail(GameObject tail, bool roundTail = true)
+    public void ReturnTail(GameObject tail)
     {
-        if (roundTail)
-        {
-            _stack_Tail1.Push(tail);
-        }
-        else
-        {
-            _stack_Tail2.Push(tail);
-        }
+        _stack_Tail.Push(tail);
 
         if (tail.activeSelf)
             tail.SetActive(false);
     }
 
-    private void MakeTail(int count, bool roundTail = true)
+    private void MakeTail(int count)
     {
-        if (roundTail)
+        for (int i = 0; i < count; i++)
         {
-            for (int i = 0; i < count; i++)
-            {
-                GameObject tail = Instantiate(tail1Prefab);
-                _stack_Tail1.Push(tail);
-                tail.SetActive(false);
-                tail.transform.SetParent(tailParent);
-            }
-        }
-        else
-        {
-            for (int i = 0; i < count; i++)
-            {
-                GameObject tail = Instantiate(tail2Prefab);
-                _stack_Tail2.Push(tail);
-                tail.SetActive(false);
-                tail.transform.SetParent(tailParent);
-            }
+            GameObject tail = Instantiate(tailPrefab);
+            _stack_Tail.Push(tail);
+            tail.SetActive(false);
+            tail.transform.SetParent(tailParent);
         }
     }
     #endregion
