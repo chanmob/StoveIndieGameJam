@@ -28,8 +28,10 @@ public class FoodScript : MonoBehaviour
                 Debug.Log("foodtype 1");
                 break;
             case 2:
+                Debug.Log("foodtype 2");
                 break;
             case 3:
+                Debug.Log("foodtype 3");
                 break;
         }
 

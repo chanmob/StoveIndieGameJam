@@ -46,7 +46,6 @@ public class moveCharacter : MonoBehaviour
 
     void onDead()
     {
-        Debug.Log("die");
         Destroy(this);
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    DeadEvent deadEvent;
+
     private const int MaxHP = 4;
 
     private int bigbooLv = 1;
@@ -13,6 +15,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        deadEvent = new DeadEvent();
         curHp = MaxHP;
     }
 
@@ -32,8 +35,7 @@ public class GameManager : Singleton<GameManager>
             curHp = MaxHP;
 
         else if (curHp < 0)
-            curHp = 0;
-
+            deadEvent.Dead();
         UIManager.instance.mainUI.HeartRefresh(curHp);
     }
 }
