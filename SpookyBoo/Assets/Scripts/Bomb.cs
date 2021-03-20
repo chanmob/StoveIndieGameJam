@@ -10,11 +10,25 @@ public class Bomb : MonoBehaviour
 
     public float scaleTime;
 
+    private IEnumerator bombCoroutine;
+
     private void Start()
     {
         _anim = GetComponent<Animator>();
 
         StartCoroutine(BombCoroutine());
+    }
+
+    public void StartBombCoroutine()
+    {
+        if(bombCoroutine != null)
+        {
+            StopCoroutine(bombCoroutine);
+            bombCoroutine = null;
+        }
+
+        bombCoroutine = BombCoroutine();
+        StartCoroutine(bombCoroutine);
     }
 
     private IEnumerator BombCoroutine()
@@ -34,6 +48,7 @@ public class Bomb : MonoBehaviour
 
     public void BombAnimationFinish()
     {
+        bombCoroutine = null;
         gameObject.SetActive(false);
     }
 }
