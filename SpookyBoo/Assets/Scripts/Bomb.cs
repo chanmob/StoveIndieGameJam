@@ -22,6 +22,11 @@ public class Bomb : MonoBehaviour
         StartCoroutine(BombCoroutine());
     }
 
+    private void OnDisable()
+    {
+        circleCollider2D.enabled = false;
+    }
+
     public void StartBombCoroutine()
     {
         if(bombCoroutine != null)

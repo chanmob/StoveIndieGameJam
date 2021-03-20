@@ -449,6 +449,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wave
       objectReference: {fileID: 0}
+    - target: {fileID: 5969508102754764004, guid: c16055a0814bb6940a70ed07094ee0e8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5969508102754764006, guid: c16055a0814bb6940a70ed07094ee0e8,
         type: 3}
       propertyPath: m_SortingOrder
@@ -1833,8 +1838,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c2f2c30945cba49a73b7a285099e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 1
+  waitTime: 5
   time: 3
+  waveDelayTime: 60
 --- !u!1 &1290262927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,6 +1871,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
+  wave: {fileID: 1205607188}
+  cb: {fileID: 1712076556}
 --- !u!4 &1290262929
 Transform:
   m_ObjectHideFlags: 0
@@ -1913,7 +1921,7 @@ MonoBehaviour:
   chaseRadius: 2
   halfViewAngle: 60
   viewZ: 110
-  createEnemyTime: 5
+  createEnemyTime: 20
 --- !u!4 &1583755413
 Transform:
   m_ObjectHideFlags: 0
@@ -2093,7 +2101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1712076556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2106,7 +2114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e1d71977430a64bbb50047b9c04f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  createBombTime: 3.5
+  redzoneDealyTime: 30
+  durationTime: 10
+  createBombTime: 3
   polyconCollider2D: {fileID: 199135353}
 --- !u!4 &1712076557
 Transform:
@@ -2546,6 +2556,7 @@ GameObject:
   - component: {fileID: 2036389542}
   - component: {fileID: 2036389544}
   - component: {fileID: 2036389543}
+  - component: {fileID: 2036389545}
   m_Layer: 0
   m_Name: Ghost1
   m_TagString: Player
@@ -2591,7 +2602,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: ebb439e9d1ce92f4d9a8daed308592d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2689,3 +2700,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.28
+--- !u!95 &2036389545
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036389538}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e729c74d07ad414bb38302626f3c49b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
