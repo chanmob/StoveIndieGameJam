@@ -1428,7 +1428,7 @@ PrefabInstance:
     - target: {fileID: 1985832069239174317, guid: 2bebfe2f5188d4847b5ced562499ac9d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.0869446
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1985832069239174317, guid: 2bebfe2f5188d4847b5ced562499ac9d,
         type: 3}
@@ -1649,6 +1649,8 @@ MonoBehaviour:
   enemyPrefab: {fileID: -3120937786964345294, guid: c2c9a58c3fc681e40a8e3ab5803291a1,
     type: 3}
   enemyParent: {fileID: 0}
+  bombPrefab: {fileID: 0}
+  bombParent: {fileID: 0}
 --- !u!4 &1532375723
 Transform:
   m_ObjectHideFlags: 0
@@ -2096,7 +2098,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: ebb439e9d1ce92f4d9a8daed308592d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2134,7 +2136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11775c50a549ad843a8e18f5e8c97f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.5
+  moveSpeed: 2.75
 --- !u!114 &2036389542
 MonoBehaviour:
   m_ObjectHideFlags: 0
