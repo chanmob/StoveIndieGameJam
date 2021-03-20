@@ -22,19 +22,19 @@ public class tail : MonoBehaviour
         
         if (transform.parent != null && arrive && i == 0)
         {
-            dir = gameObject.transform.parent.position - gameObject.transform.position;
-            dir.Normalize();
+            dir = gameObject.transform.parent.position;
             if (stop)
             {
                 gameObject.transform.Translate(dir * moveSpeed * Time.deltaTime);
             }
+
             if (gameObject.transform.parent.position.x - gameObject.transform.position.x <= padding && gameObject.transform.parent.position.y - gameObject.transform.position.y <= padding)
                 stop = false;
             else
                 stop = true;
         }
         i++;
-        if (i > 4)
+        if (i > 200)
             i = 0;
 
     }
