@@ -2646,6 +2646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d7a13841c352a40a2dcabef4fb0b35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tTailNum: {fileID: 627667248}
   n_tail: 0
   parentTail: {fileID: 0}
   child: {fileID: 0}
