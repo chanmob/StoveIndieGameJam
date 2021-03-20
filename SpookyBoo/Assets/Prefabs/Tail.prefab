@@ -95,13 +95,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f867b23b77f53f4a97bdbf25e0766a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.75
+  moveSpeed: 2.6
+  speedUp: 1.2
   pos: {x: 0, y: 0, z: 0}
   dir: {x: 0, y: 0, z: 0}
   des: {x: 0, y: 0, z: 0}
   arrive: 0
   stop: 1
-  padding: 0.2
+  padding: 0.5
   parent: {fileID: 0}
   child: {fileID: 0}
 --- !u!58 &347302210010939658
