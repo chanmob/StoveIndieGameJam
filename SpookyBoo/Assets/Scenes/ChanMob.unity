@@ -626,7 +626,8 @@ MonoBehaviour:
   tailSprite:
   - {fileID: 21300000, guid: 57bb5aed5873f0c448cb82efede397cf, type: 3}
   - {fileID: 21300000, guid: e91df3976c2c60e4cb9e03f569b573c4, type: 3}
-  tailPrefab: {fileID: 670001187}
+  tailPrefab: {fileID: 1373774506181015898, guid: 2bebfe2f5188d4847b5ced562499ac9d,
+    type: 3}
   tailParent: {fileID: 2007689417}
   enemyPrefab: {fileID: -3120937786964345294, guid: c2c9a58c3fc681e40a8e3ab5803291a1,
     type: 3}
@@ -1063,18 +1064,6 @@ EdgeCollider2D:
   - {x: 5.951786, y: 0.13747764}
   - {x: 6.6746197, y: -2.7797244}
   - {x: 6.8002405, y: -5.3276443}
---- !u!114 &670001187 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1373774506181015898, guid: 2bebfe2f5188d4847b5ced562499ac9d,
-    type: 3}
-  m_PrefabInstance: {fileID: 877459410}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f867b23b77f53f4a97bdbf25e0766a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &700877105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,75 +1448,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869141883}
   m_CullTransparentMesh: 0
---- !u!1001 &877459410
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1985832069239174317, guid: 2bebfe2f5188d4847b5ced562499ac9d,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1985832069239174317, guid: 2bebfe2f5188d4847b5ced562499ac9d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -14.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 1985832069239174317, guid: 2bebfe2f5188d4847b5ced562499ac9d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 1985832069239174317, guid: 2bebfe2f5188d4847b5ced562499ac9d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.0869446
-      objectReference: {fileID: 0}
-    - target: {fileID: 1985832069239174317, guid: 2bebfe2f5188d4847b5ced562499ac9d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1985832069239174317, guid: 2bebfe2f5188d4847b5ced562499ac9d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1985832069239174317, guid: 2bebfe2f5188d4847b5ced562499ac9d,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1985832069239174317, guid: 2bebfe2f5188d4847b5ced562499ac9d,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1985832069239174317, guid: 2bebfe2f5188d4847b5ced562499ac9d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1985832069239174317, guid: 2bebfe2f5188d4847b5ced562499ac9d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1985832069239174317, guid: 2bebfe2f5188d4847b5ced562499ac9d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1985832069239174319, guid: 2bebfe2f5188d4847b5ced562499ac9d,
-        type: 3}
-      propertyPath: m_Name
-      value: Tail
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2bebfe2f5188d4847b5ced562499ac9d, type: 3}
 --- !u!1 &882891091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1895,7 +1815,7 @@ GameObject:
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1583755412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2093,7 +2013,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1712076556
 MonoBehaviour:
   m_ObjectHideFlags: 0
