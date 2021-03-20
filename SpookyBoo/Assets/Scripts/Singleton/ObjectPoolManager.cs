@@ -13,7 +13,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     private Stack<GameObject> _stack_Food;
 
     [SerializeField]
-    private Transform foodParent;
+    private Transform _foodParent;
 
     [Header("Tail")]
     [SerializeField]
@@ -23,7 +23,15 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     private Stack<tail> _stack_Tail;
 
     [SerializeField]
-    private Transform tailParent;
+    private Transform _tailParent;
+
+    [Header("ShootEnemy")]
+    public Enemy enemyPrefab;
+    private Stack<Enemy> _stack_Enemy;
+
+    [SerializeField]
+    private Transform _enemyParent;
+
 
     protected override void OnAwake()
     {
@@ -31,6 +39,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
 
         _stack_Food = new Stack<GameObject>();
         _stack_Tail = new Stack<tail>();
+        _stack_Enemy = new Stack<Enemy>();
     }
 
     #region FOOD
@@ -62,7 +71,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
             GameObject food = Instantiate(foodPrefab);
             _stack_Food.Push(food);
             food.SetActive(false);
-            food.transform.SetParent(foodParent);
+            food.transform.SetParent(_foodParent);
         }
     }
     #endregion
@@ -96,7 +105,38 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
             tail tail = Instantiate(tailPrefab);
             _stack_Tail.Push(tail);
             tail.gameObject.SetActive(true);
-            tail.gameObject.transform.SetParent(tailParent);
+            tail.gameObject.transform.SetParent(_tailParent);
+        }
+    }
+    #endregion
+
+    #region ShootEnemy
+    public Enemy GetEnemy()
+    {
+        int len = _stack_Enemy.Count;
+
+        if (len == 0)
+            MakeEnemy(1);
+
+        return _stack_Enemy.Pop();
+    }
+
+    public void ReturnFood(Enemy enemy)
+    {
+        _stack_Enemy.Push(enemy);
+
+        if (enemy.gameObject.activeSelf)
+            enemy.gameObject.SetActive(false);
+    }
+
+    private void MakeEnemy(int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            Enemy enemy = Instantiate(enemyPrefab);
+            _stack_Enemy.Push(enemy);
+            enemy.gameObject.SetActive(false);
+            enemy.transform.SetParent(_enemyParent);
         }
     }
     #endregion

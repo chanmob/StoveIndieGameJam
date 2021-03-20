@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField]
-    private Transform idleTransform;
+    public Transform idleTransform;
 
     public float idleTime;
     public float searchingTime;
@@ -15,9 +14,28 @@ public class Enemy : MonoBehaviour
     public float halfViewAngle = 30f;
     public float viewZ = 90;
 
+    private IEnumerator shootCoroutine;
+
+    private Animator _anim;
+
     private void Start()
     {
-        StartCoroutine(EnemyShootingCoroutine());
+        _anim = GetComponent<Animator>();
+    }
+
+    public void StartShootCoroutine()
+    {
+        shootCoroutine = EnemyShootingCoroutine();
+        StartCoroutine(shootCoroutine);
+    }
+
+    private void OnDisable()
+    {
+        if(shootCoroutine != null)
+        {
+            StopCoroutine(shootCoroutine);
+            shootCoroutine = null;
+        }
     }
 
     private IEnumerator EnemyShootingCoroutine()
@@ -34,6 +52,8 @@ public class Enemy : MonoBehaviour
 
         transform.position = idleTransform.position;
 
+        _anim.SetTrigger("Idle");
+
         float time = 0f;
         while (time < searchingTime)
         {
@@ -48,6 +68,8 @@ public class Enemy : MonoBehaviour
 
         yield return new WaitForSeconds(idleTime);
 
+        _anim.SetTrigger("Move");
+
         Vector2 dir = (randomVec - transform.position).normalized;
         Vector2 finalDistance = dir * 10f;
         finalDistance = new Vector3(finalDistance.x, finalDistance.y, 0);
@@ -59,6 +81,8 @@ public class Enemy : MonoBehaviour
             transform.Translate(dir * shootSpeed * Time.deltaTime);
             yield return null;
         }
+
+        shootCoroutine = null;
     }
 
     private Vector3 AngleToDirZ(float angleInDegree)

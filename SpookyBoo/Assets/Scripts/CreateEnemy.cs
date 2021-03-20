@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CreateEnemy : MonoBehaviour
 {
+    [SerializeField]
     private Transform spawnPosition;
+    [SerializeField]
     private Transform idlePosition;
 
     public float chaseRadius = 1f;
@@ -14,19 +16,30 @@ public class CreateEnemy : MonoBehaviour
 
     public float createEnemyTime;
 
+    private void Start()
+    {
+        StartCoroutine(CreateEnemyCoroutine());
+    }
+
     private IEnumerator CreateEnemyCoroutine()
     {
         while (true)
         {
             yield return new WaitForSeconds(createEnemyTime);
+
+            Enemy newEnemy = ObjectPoolManager.instance.GetEnemy();
+            newEnemy.halfViewAngle = halfViewAngle;
+            newEnemy.viewZ = viewZ;
+            newEnemy.idleTransform = idlePosition;
+            newEnemy.transform.position = spawnPosition.position;
+            newEnemy.gameObject.SetActive(true);
+            newEnemy.StartShootCoroutine();
         }
     }
 
     private void OnDrawGizmosSelected()
     {
         Vector3 originPos = transform.position;
-
-        Gizmos.DrawWireSphere(originPos, chaseRadius);
 
         Vector3 horizontalRightDir = AngleToDirZ(-halfViewAngle + viewZ);
         Vector3 horizontalLeftDir = AngleToDirZ(halfViewAngle + viewZ);
