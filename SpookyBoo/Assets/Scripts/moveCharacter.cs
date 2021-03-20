@@ -147,6 +147,7 @@ public class moveCharacter : MonoBehaviour
 
     void onDead()
     {
+        SoundManager.instance.PlaySFX("GameOverSE", 1f);
         gameObject.SetActive(false);
     }
 }
