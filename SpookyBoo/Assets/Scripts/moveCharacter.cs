@@ -4,10 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 public class moveCharacter : MonoBehaviour
 {
-    
+
     public float moveSpeed = 0.5f;
     new Vector3 dir, m_scale;
-    
+    DeadEvent deadEvent;
+
+    void Start()
+    {
+        deadEvent = new DeadEvent();
+        deadEvent.onDead += new DeadEvent.deadHandler(onDead);
+    }
     void Update()
     {
         moveUpdate();
@@ -28,6 +34,20 @@ public class moveCharacter : MonoBehaviour
         dir = mousePos - gameObject.transform.position.normalized;
         gameObject.transform.Translate(new Vector3(dir.x, dir.y, 0) * moveSpeed * Time.deltaTime);
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "BigBoo")
+        {
+            deadEvent.Dead();
+        }
+    }
+
+    void onDead()
+    {
+        Debug.Log("die");
+        Destroy(this);
     }
 }
 
