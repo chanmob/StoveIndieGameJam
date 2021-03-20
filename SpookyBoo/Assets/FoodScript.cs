@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FoodScript : MonoBehaviour
 {
     public int foodType;
     FoodEvent foodEvent;
+    
     private void Start()
     {
         foodEvent = new FoodEvent();
@@ -25,6 +24,7 @@ public class FoodScript : MonoBehaviour
         switch (foodType)
         {
             case 1:
+                GameManager.instance.ChangeBigBooHungry(5);
                 Debug.Log("foodtype 1");
                 break;
             case 2:

@@ -12,11 +12,18 @@ public class GameManager : Singleton<GameManager>
     private int booLv = 1;
 
     private int curHp;
+    private int hungryPoint = 100;
 
     private void Start()
     {
         deadEvent = new DeadEvent();
         curHp = MaxHP;
+        InvokeRepeating("getLoseWeight", 1, 5);
+    }
+
+    private void Update()
+    {
+        Debug.Log(hungryPoint);
     }
 
     public void BooLevelUp()
@@ -38,4 +45,21 @@ public class GameManager : Singleton<GameManager>
             deadEvent.Dead();
         UIManager.instance.mainUI.HeartRefresh(curHp);
     }
+
+    private void getLoseWeight()
+    {
+        ChangeBigBooHungry(-5);
+    }
+    public void ChangeBigBooHungry(int value)
+    {
+        hungryPoint += value;
+
+        if (hungryPoint >= 100)
+            hungryPoint = 100;
+        else if (hungryPoint < 0)
+            deadEvent.Dead();
+        UIManager.instance.mainUI.HungrySliderRefresh(hungryPoint);
+
+    }
+
 }
