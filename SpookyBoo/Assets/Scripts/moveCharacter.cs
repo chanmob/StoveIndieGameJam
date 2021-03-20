@@ -10,9 +10,13 @@ public class moveCharacter : MonoBehaviour
     int booLV, bigBooLv;
     new Vector3 dir, m_scale;
     DeadEvent deadEvent;
-    SpeedEvent speedEvent;    
+    SpeedEvent speedEvent;
+
+    private Animator _anim;
+
     void Start()
     {
+        _anim = GetComponent<Animator>();
         deadEvent = new DeadEvent();
         deadEvent.onDead += new DeadEvent.deadHandler(onDead);
         speedEvent = new SpeedEvent();
@@ -113,6 +117,8 @@ public class moveCharacter : MonoBehaviour
 
         if (collision.CompareTag("Food"))
         {
+            _anim.SetTrigger("Eat");
+
             ObjectPoolManager.instance.ReturnFood(collision.gameObject);
             gameObject.GetComponent<BooTail>().CreateTail(dir);
             switch (foodCreater.transform.GetComponent<CreateFood>().randomIndex)
@@ -147,6 +153,7 @@ public class moveCharacter : MonoBehaviour
 
     void onDead()
     {
+        _anim.SetTrigger("Die");
         SoundManager.instance.PlaySFX("GameOverSE", 1f);
         gameObject.SetActive(false);
     }
