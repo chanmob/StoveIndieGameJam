@@ -14,7 +14,7 @@ public class moveCharacter : MonoBehaviour
         deadEvent = new DeadEvent();
         deadEvent.onDead += new DeadEvent.deadHandler(onDead);
     }
-    void Update()
+    void FixedUpdate()
     {
         moveUpdate();
         m_scale = gameObject.transform.localScale;
