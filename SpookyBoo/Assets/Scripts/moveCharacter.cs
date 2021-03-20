@@ -84,6 +84,11 @@ public class moveCharacter : MonoBehaviour
             ObjectPoolManager.instance.ReturnFood(collision.gameObject);
             gameObject.GetComponent<BooTail>().CreateTail(dir);
         }
+        if(collision.tag == "Enemy")
+        {
+            GameManager.instance.ChangeBooHp(-1);
+            ObjectPoolManager.instance.ReturnTail(collision.GetComponent<Enemy>());
+        }
     }
 
     void onDead()

@@ -620,7 +620,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 00afb4cc545886143886f1c880f2a0f5, type: 3}
   - {fileID: 21300000, guid: dcfc8b7b498f9504a975e12f288089e3, type: 3}
   - {fileID: 21300000, guid: ca591a77269bbeb4a86e80cda9ff9a38, type: 3}
-  foodPrefab: {fileID: 9212311695654116842, guid: faeb40c0b2c9ce54b8c08882af6fd657,
+  foodPrefab: {fileID: 1403546270064001379, guid: faeb40c0b2c9ce54b8c08882af6fd657,
     type: 3}
   foodParent: {fileID: 1978849693}
   tailSprite:
@@ -632,8 +632,9 @@ MonoBehaviour:
   enemyPrefab: {fileID: -3120937786964345294, guid: c2c9a58c3fc681e40a8e3ab5803291a1,
     type: 3}
   enemyParent: {fileID: 990674055}
-  bombPrefab: {fileID: 0}
-  bombParent: {fileID: 0}
+  bombPrefab: {fileID: 6987117440015191367, guid: bc1337e8a1d1ea3499193b7c29bbcd0d,
+    type: 3}
+  bombParent: {fileID: 1969292366}
 --- !u!4 &451545770
 Transform:
   m_ObjectHideFlags: 0
@@ -648,6 +649,7 @@ Transform:
   - {fileID: 1978849693}
   - {fileID: 2007689417}
   - {fileID: 990674055}
+  - {fileID: 1969292366}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2007,7 +2009,7 @@ GameObject:
   - component: {fileID: 1712076556}
   m_Layer: 0
   m_Name: CreateBomb
-  m_TagString: Untagged
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2233,6 +2235,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943343483}
   m_CullTransparentMesh: 0
+--- !u!1 &1969292365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1969292366}
+  m_Layer: 0
+  m_Name: BombParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1969292366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969292365}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 451545770}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1978849692
 GameObject:
   m_ObjectHideFlags: 0
@@ -2432,10 +2464,11 @@ GameObject:
   - component: {fileID: 2036389539}
   - component: {fileID: 2036389541}
   - component: {fileID: 2036389542}
+  - component: {fileID: 2036389544}
   - component: {fileID: 2036389543}
   m_Layer: 0
   m_Name: Ghost1
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2499,7 +2532,7 @@ Transform:
   m_GameObject: {fileID: 2036389538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -2516,7 +2549,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11775c50a549ad843a8e18f5e8c97f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5
+  BigBoo: {fileID: 0}
+  moveSpeed: 2.5
+  speedUp: 1.2
 --- !u!114 &2036389542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2532,8 +2567,29 @@ MonoBehaviour:
   n_tail: 0
   parentTail: {fileID: 0}
   child: {fileID: 0}
-  padding: 1
---- !u!58 &2036389543
+  padding: 0.1
+--- !u!50 &2036389543
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036389538}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!58 &2036389544
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2546,6 +2602,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04390685, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.9024016
+  m_Radius: 1.28
