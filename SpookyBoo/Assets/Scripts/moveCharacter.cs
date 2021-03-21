@@ -18,7 +18,7 @@ public class moveCharacter : MonoBehaviour
     {
         _anim = GetComponent<Animator>();
         deadEvent = new DeadEvent();
-        deadEvent.onDead += new DeadEvent.deadHandler(onDead);
+//        deadEvent.onDead += new DeadEvent.deadHandler(onDead);
         speedEvent = new SpeedEvent();
         booLV = bigBooLv = 0;
         alive = true;
@@ -31,7 +31,7 @@ public class moveCharacter : MonoBehaviour
             moveUpdate();
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            UIManager.instance.setting.gameobject.SetActive(true);
+            UIManager.instance.setting.gameObject.SetActive(true);
             Time.timeScale = 0f;
         }
 

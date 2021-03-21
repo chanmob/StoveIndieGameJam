@@ -5,37 +5,41 @@ using UnityEngine;
 
 public class tail : MonoBehaviour
 {
+    public GameObject foodCreater;
     public float moveSpeed = 3.0f, speedUp = 1.2f;
     public Vector3 pos, dir, des;
     public bool arrive = false, stop = true;
     public float padding;
     public GameObject parent, child;
+    DeadEvent deadEvent;
 
     SpeedEvent speed;
     void Start()
     {
         speed = new SpeedEvent();
         speed.onSpeed += new SpeedEvent.speedHandler(SpeedUpEvent);
+        deadEvent = new DeadEvent();
     }
 
 
     private void FixedUpdate()
     {
-        if(parent != null)
+        if (parent != null)
             if (parent.tag == "Player")
                 padding = 0.8f;
         double a = Math.Pow(parent.transform.position.x - transform.position.x, 2) + Math.Pow(parent.transform.position.y - transform.position.y, 2);
         a = Math.Sqrt(a);
         if (a <= padding)
-            stop = false;   
+            stop = false;
         else
             stop = true;
 
-        if (stop) {
+        if (stop)
+        {
             moveUpdate();
         }
 
-//            moveUpdate();
+        //            moveUpdate();
     }
 
     void moveUpdate()
@@ -44,8 +48,8 @@ public class tail : MonoBehaviour
         dir = parent.transform.position - pos;
         dir.Normalize();
         gameObject.transform.Translate(dir * moveSpeed * Time.deltaTime);
-        
-//        stop = false;
+
+        //        stop = false;
     }
 
     private void SpeedUpEvent()
@@ -56,43 +60,12 @@ public class tail : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "BigBoo")
-        {
-            onDead();
-        }
-
         if (collision.tag == "Bomb")
             deadEvent.Dead();
-
-        if (collision.CompareTag("Food"))
+        if (collision.tag == "Enemy")
         {
-            _anim.SetTrigger("Eat");
-
-            ObjectPoolManager.instance.ReturnFood(collision.gameObject);
-            gameObject.GetComponent<BooTail>().CreateTail(dir);
-            switch (foodCreater.transform.GetComponent<CreateFood>().randomIndex)
-            {
-                case 0:
-                    GameManager.instance.ChangeBigBooHungry(10);
-                    break;
-                case 1:
-                    GameManager.instance.ChangeBigBooHungry(15);
-                    break;
-                case 2:
-                    GameManager.instance.ChangeBigBooHungry(20);
-                    break;
-                case 3:
-                    GameManager.instance.ChangeBigBooHungry(25);
-                    break;
-                case 4:
-                    GameManager.instance.ChangeBigBooHungry(30);
-                    break;
-
-            }
-
+            GameManager.instance.ChangeBooHp(-1);
+            ObjectPoolManager.instance.ReturnEnemy(collision.GetComponent<Enemy>());
         }
-
-
-
-
     }
+}
