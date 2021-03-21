@@ -2961,8 +2961,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e1d71977430a64bbb50047b9c04f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redzoneDealyTime: 30
-  durationTime: 10
+  redzoneDealyTime: 0
+  durationTime: 99
   createBombTime: 3
   polyconCollider2D: {fileID: 1712076558}
 --- !u!4 &1712076557
