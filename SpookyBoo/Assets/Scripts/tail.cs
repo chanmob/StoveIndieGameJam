@@ -53,4 +53,46 @@ public class tail : MonoBehaviour
         moveSpeed *= speedUp;
     }
 
-}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "BigBoo")
+        {
+            onDead();
+        }
+
+        if (collision.tag == "Bomb")
+            deadEvent.Dead();
+
+        if (collision.CompareTag("Food"))
+        {
+            _anim.SetTrigger("Eat");
+
+            ObjectPoolManager.instance.ReturnFood(collision.gameObject);
+            gameObject.GetComponent<BooTail>().CreateTail(dir);
+            switch (foodCreater.transform.GetComponent<CreateFood>().randomIndex)
+            {
+                case 0:
+                    GameManager.instance.ChangeBigBooHungry(10);
+                    break;
+                case 1:
+                    GameManager.instance.ChangeBigBooHungry(15);
+                    break;
+                case 2:
+                    GameManager.instance.ChangeBigBooHungry(20);
+                    break;
+                case 3:
+                    GameManager.instance.ChangeBigBooHungry(25);
+                    break;
+                case 4:
+                    GameManager.instance.ChangeBigBooHungry(30);
+                    break;
+
+            }
+
+        }
+
+
+
+
+    }

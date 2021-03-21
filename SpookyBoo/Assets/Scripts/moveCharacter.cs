@@ -29,6 +29,12 @@ public class moveCharacter : MonoBehaviour
         GameManager.instance.getLoseWeight();
         if(alive)
             moveUpdate();
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            UIManager.instance.setting.gameobject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
         if (Input.GetKeyUp(KeyCode.T))
             gameObject.GetComponent<BooTail>().CreateTail(dir);
         if (Input.GetKeyUp(KeyCode.Q) && transform.GetComponent<BooTail>().n_tail >= 5)
@@ -164,6 +170,7 @@ public class moveCharacter : MonoBehaviour
 
     void setDeadState()
     {
+        UIManager.instance.gameOver.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
 }
