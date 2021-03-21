@@ -11,7 +11,7 @@ public class moveCharacter : MonoBehaviour
     new Vector3 dir, m_scale;
     DeadEvent deadEvent;
     SpeedEvent speedEvent;
-
+    public bool alive;
     private Animator _anim;
 
     void Start()
@@ -21,12 +21,14 @@ public class moveCharacter : MonoBehaviour
         deadEvent.onDead += new DeadEvent.deadHandler(onDead);
         speedEvent = new SpeedEvent();
         booLV = bigBooLv = 0;
+        alive = true;
     }
 
     private void Update()
     {
         GameManager.instance.getLoseWeight();
-        moveUpdate();
+        if(alive)
+            moveUpdate();
         if (Input.GetKeyUp(KeyCode.T))
             gameObject.GetComponent<BooTail>().CreateTail(dir);
         if (Input.GetKeyUp(KeyCode.Q) && transform.GetComponent<BooTail>().n_tail >= 5)
@@ -109,7 +111,7 @@ public class moveCharacter : MonoBehaviour
     {
         if (collision.tag == "BigBoo")
         {
-            deadEvent.Dead();
+            onDead();
         }
 
         if (collision.tag == "Bomb")
@@ -151,10 +153,17 @@ public class moveCharacter : MonoBehaviour
         }
     }
 
-    void onDead()
+    public void onDead()
     {
         _anim.SetTrigger("Die");
         SoundManager.instance.PlaySFX("GameOverSE", 1f);
+        Animator anime = gameObject.GetComponent<Animator>();
+        alive = false;
+        Invoke("setDeadState", 2);
+    }
+
+    void setDeadState()
+    {
         gameObject.SetActive(false);
     }
 }

@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
 
     public Wave wave;
     public CreateBomb cb;
+    public GameObject PC;
 
     private const int MaxHP = 4;
 
@@ -52,13 +53,13 @@ public class GameManager : Singleton<GameManager>
     public void ChangeBooHp(int value)
     {
         curHp += value;
+        UIManager.instance.mainUI.HeartRefresh(curHp);
 
         if (curHp >= MaxHP)
             curHp = MaxHP;
 
-        else if (curHp < 0)
-            deadEvent.Dead();
-        UIManager.instance.mainUI.HeartRefresh(curHp);
+        else if (curHp == 0)
+            PC.GetComponent<moveCharacter>().onDead();
     }
 
     public void getLoseWeight()
