@@ -64,7 +64,7 @@ public class GameManager : Singleton<GameManager>
 
     public void getLoseWeight()
     {
-        ChangeBigBooHungry(-0.1f);
+        ChangeBigBooHungry(-0.07f);
     }
     public void ChangeBigBooHungry(float value)
     {
@@ -72,8 +72,8 @@ public class GameManager : Singleton<GameManager>
 
         if (hungryPoint >= 100)
             hungryPoint = 100;
-        else if (hungryPoint < 0)
-            deadEvent.Dead();
+        else if (hungryPoint <= 0)
+            PC.GetComponent<moveCharacter>().onDead();
         UIManager.instance.mainUI.HungrySliderRefresh(hungryPoint);
 
     }

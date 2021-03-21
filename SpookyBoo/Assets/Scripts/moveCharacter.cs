@@ -122,7 +122,7 @@ public class moveCharacter : MonoBehaviour
 
         if (collision.tag == "Bomb")
             deadEvent.Dead();
-        if (collision.tag == "Tail")
+        if (collision.tag == "tail")
             deadEvent.Dead();
 
         if (collision.CompareTag("Food"))
