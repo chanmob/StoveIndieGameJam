@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TeamLogo.unity
+    guid: 1fe088c3e364af14a9a53015cdb3b3f6
+  - enabled: 1
+    path: Assets/Scenes/OutGame.unity
+    guid: 715c510d88831cb4eb7929eccd056288
+  - enabled: 1
+    path: Assets/Scenes/CutScene.unity
+    guid: 28fd3ef586906234fa12c88422900790
+  - enabled: 1
+    path: Assets/Scenes/InGame.unity
+    guid: 2c676bb71903fa643b0b02a75d2f1a77
   m_configObjects: {}

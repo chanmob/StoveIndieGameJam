@@ -13,6 +13,8 @@ public class MainUI : MonoBehaviour
 
     public Slider hungry;
 
+    public float max = 100;
+
     public void HeartRefresh(int curHp)
     {
         int len = heartImage.Length;
@@ -30,12 +32,12 @@ public class MainUI : MonoBehaviour
         }
     }
 
-    public void TailCountRefresh(int count, int max)
+    public void TailCountRefresh(int count)
     {
         tailCount.text = count + " / " + max;
     }
 
-    public void HungrySliderRefresh(float cur, float max)
+    public void HungrySliderRefresh(float cur)
     {
         hungry.value = cur / max;
     }

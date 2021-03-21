@@ -22,7 +22,7 @@ public class SoundManager : Singleton<SoundManager>
         {
             string clipName = loadedClips[i].name;
 
-            if (_clips.ContainsKey(clipName))
+            if (_clips.ContainsKey(clipName) == false)
             {
                 _clips.Add(clipName, loadedClips[i]);
             }
