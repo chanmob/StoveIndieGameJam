@@ -14,7 +14,7 @@ public class Wave : MonoBehaviour
 
     private void Start()
     {
-        startPosition = transform.position;
+        startPosition = new Vector2(0, -8f);
     }
 
     public void StartWaveCoroutine()

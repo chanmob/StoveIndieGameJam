@@ -26,6 +26,14 @@ public class GameManager : Singleton<GameManager>
         curHp = MaxHP;
     }
 
+    //public void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.A))
+    //    {
+    //        BooLevelUp();
+    //    }
+    //}
+
     public void BooLevelUp()
     {
         booLv++;

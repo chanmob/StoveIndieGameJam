@@ -462,7 +462,7 @@ MonoBehaviour:
   - cutsceneKey: CutScene3
     cutsceneString: "\uC55E\uC73C\uB85C \uCD5C\uC120\uC744 \uB2E4\uD574\uC11C"
   - cutsceneKey: CutScene4
-    cutsceneString: "\uC5F4\uC2EC\uC774 \uBA39\uC5B4..."
+    cutsceneString: "\uC5F4\uC2EC\uD788 \uBA39\uC5B4..."
   - cutsceneKey: CutScene5
     cutsceneString: "\uC7A0\uC2DC\uB9CC..., \uC5EC\uAE30\uAC00 \uC5B4\uB514\uC9C0?"
   cutsceneBackground: {fileID: 1157349127}

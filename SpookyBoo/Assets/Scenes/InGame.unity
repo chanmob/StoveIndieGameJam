@@ -526,7 +526,12 @@ PrefabInstance:
     - target: {fileID: 5969508102754764004, guid: c16055a0814bb6940a70ed07094ee0e8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5969508102754764004, guid: c16055a0814bb6940a70ed07094ee0e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wave
       objectReference: {fileID: 0}
     - target: {fileID: 5969508102754764006, guid: c16055a0814bb6940a70ed07094ee0e8,
         type: 3}
@@ -3731,7 +3736,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2036389538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11775c50a549ad843a8e18f5e8c97f5b, type: 3}
+  m_Script: {fileID: 11500000, guid: 835817b120e596d4f92e402e6c95fe5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BigBoo: {fileID: 651253323}

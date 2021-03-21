@@ -35,15 +35,18 @@ public class moveCharacter : MonoBehaviour
             Time.timeScale = 0f;
         }
 
-        if (Input.GetKeyUp(KeyCode.T))
-            gameObject.GetComponent<BooTail>().CreateTail(dir);
+        //if (Input.GetKeyUp(KeyCode.T))
+        //    gameObject.GetComponent<BooTail>().CreateTail(dir);
         if (Input.GetKeyUp(KeyCode.Q) && transform.GetComponent<BooTail>().n_tail >= 5)
         {
             GameManager.instance.BooLevelUp();
             booLV += 1;
             if (booLV < 4)
             {
-                gameObject.GetComponent<Transform>().localScale = gameObject.GetComponent<Transform>().localScale + new Vector3(0.05f, 0.05f, 0);
+                if (gameObject.GetComponent<Transform>().localScale.x >= 0)
+                    gameObject.GetComponent<Transform>().localScale = gameObject.GetComponent<Transform>().localScale + new Vector3(0.05f, 0.05f, 0);
+                if (gameObject.GetComponent<Transform>().localScale.x < 0)
+                    gameObject.GetComponent<Transform>().localScale = gameObject.GetComponent<Transform>().localScale + new Vector3(-0.05f, 0.05f, 0);
                 //                Boo 크기 조정
                 for (int i = 0; i < 5; i++)
                     transform.GetComponent<BooTail>().DeleteTail();
@@ -110,7 +113,10 @@ public class moveCharacter : MonoBehaviour
         dir = dir.normalized;
         gameObject.transform.Translate(dir * moveSpeed * Time.deltaTime);
 
-
+        if (dir.x >= 0)
+            gameObject.transform.localScale = new Vector3(-Mathf.Abs(gameObject.transform.localScale.x), Mathf.Abs(gameObject.transform.localScale.y), 0);
+        else
+            gameObject.transform.localScale = new Vector3(Mathf.Abs(gameObject.transform.localScale.x), Mathf.Abs(gameObject.transform.localScale.y), 0);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -158,6 +164,11 @@ public class moveCharacter : MonoBehaviour
         {
             GameManager.instance.ChangeBooHp(-1);
             ObjectPoolManager.instance.ReturnEnemy(collision.GetComponent<Enemy>());
+        }
+
+        if (collision.CompareTag("Wave"))
+        {
+            GameManager.instance.ChangeBooHp(-1);
         }
     }
 

@@ -9,6 +9,7 @@ TagManager:
   - tail
   - Enemy
   - Bomb
+  - Wave
   layers:
   - Default
   - TransparentFX

@@ -17,6 +17,7 @@ public class Setting : MonoBehaviour
 
     public void GoToOutGame()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(OutGameSceneName);
     }
 
