@@ -18,7 +18,7 @@ public class moveCharacter : MonoBehaviour
     {
         _anim = GetComponent<Animator>();
         deadEvent = new DeadEvent();
-//        deadEvent.onDead += new DeadEvent.deadHandler(onDead);
+        deadEvent.onDead += new DeadEvent.deadHandler(onDead);
         speedEvent = new SpeedEvent();
         booLV = bigBooLv = 0;
         alive = true;

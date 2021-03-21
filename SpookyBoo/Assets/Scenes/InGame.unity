@@ -2632,6 +2632,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   wave: {fileID: 1205607188}
   cb: {fileID: 1712076556}
+  PC: {fileID: 2036389538}
 --- !u!4 &1290262929
 Transform:
   m_ObjectHideFlags: 0
@@ -2680,7 +2681,7 @@ MonoBehaviour:
   chaseRadius: 2
   halfViewAngle: 60
   viewZ: 110
-  createEnemyTime: 20
+  createEnemyTime: 2
 --- !u!4 &1583755413
 Transform:
   m_ObjectHideFlags: 0
@@ -3657,6 +3658,7 @@ MonoBehaviour:
   moveSpeed: 2.6
   speedUp: 1.2
   n_needTail: 3
+  alive: 0
 --- !u!114 &2036389542
 MonoBehaviour:
   m_ObjectHideFlags: 0
