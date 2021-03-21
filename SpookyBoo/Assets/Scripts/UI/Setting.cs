@@ -10,6 +10,7 @@ public class Setting : MonoBehaviour
 
     public void Resume()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(InGameSceneName);
     }
 

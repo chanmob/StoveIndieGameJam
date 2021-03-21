@@ -6,4 +6,5 @@ public class UIManager : Singleton<UIManager>
 {
     public MainUI mainUI;
     public GameOver gameOver;
+    public Setting setting;
 }
