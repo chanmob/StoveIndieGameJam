@@ -11,7 +11,7 @@ public class Setting : MonoBehaviour
     public void Resume()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(InGameSceneName);
+        //SceneManager.LoadScene(InGameSceneName);
     }
 
     public void GoToOutGame()
