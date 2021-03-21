@@ -34,7 +34,6 @@ public class Wave : MonoBehaviour
         while (true)
         {
             float randomY = Random.Range(1.5f, 4f);
-            randomY = 4f;
             Vector2 destination = startPosition + new Vector3(0, randomY);
 
             float distance = Vector2.Distance(transform.position, destination);

@@ -8,6 +8,11 @@ public class TeamLogo : MonoBehaviour
 {
     public Image fadeImage;
 
+    private void Start()
+    {
+        Invoke("FadeOut", 2f);
+    }
+
     public void FadeOut()
     {
         StartCoroutine(FadeCoroutine());

@@ -19,6 +19,7 @@ public class GameManager : Singleton<GameManager>
 
     private int curHp;
     private float hungryPoint = 100;
+    public float hungry = 1f;
 
     private void Start()
     {
@@ -69,7 +70,7 @@ public class GameManager : Singleton<GameManager>
 
     public void getLoseWeight()
     {
-        ChangeBigBooHungry(-0.07f);
+        ChangeBigBooHungry(Time.deltaTime * -hungry);
     }
     public void ChangeBigBooHungry(float value)
     {
