@@ -3754,7 +3754,7 @@ MonoBehaviour:
   n_tail: 0
   parentTail: {fileID: 0}
   child: {fileID: 0}
-  padding: 0.3
+  padding: -0.5
   first: 1
 --- !u!50 &2036389543
 Rigidbody2D:
@@ -3792,7 +3792,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.28
+  m_Radius: 0.5468449
 --- !u!95 &2036389545
 Animator:
   serializedVersion: 3
