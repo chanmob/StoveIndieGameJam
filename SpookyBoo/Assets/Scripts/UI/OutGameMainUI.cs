@@ -8,6 +8,7 @@ public class OutGameMainUI : MonoBehaviour
     public Image fadeImage;
 
     public GameObject titleLogo;
+    public GameObject developer;
 
     public Button[] cloudBtns;
     public CanvasGroup[] cloudCanvasGroup;
@@ -73,6 +74,7 @@ public class OutGameMainUI : MonoBehaviour
     public void Developer()
     {
         SoundManager.instance.PlaySFX("SE", 1f);
+        developer.SetActive(true);
     }
 
     public void GamePlay()
