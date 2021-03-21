@@ -12,8 +12,10 @@ public class GameManager : Singleton<GameManager>
 
     private const int MaxHP = 4;
 
-    private int bigbooLv = 0;
-    private int booLv = 0;
+    [SerializeField]
+    private int bigbooLv = 1;
+    [SerializeField]
+    private int booLv = 1;
 
     private int curHp;
     private float hungryPoint = 100;
@@ -28,25 +30,20 @@ public class GameManager : Singleton<GameManager>
     {
         booLv++;
 
-        if (booLv % 4 == 0 && booLv != 0)
+        if (booLv % 5 == 0)
         {
             bigbooLv++;
 
-            if (bigbooLv == 1)
+            if (bigbooLv == 2)
             {
                 cb.gameObject.SetActive(true);
             }
 
-            if (bigbooLv == 2)
+            if (bigbooLv == 3)
             {
                 wave.gameObject.SetActive(true);
                 wave.StartWaveCoroutine();
             }
-        }
-        else if(booLv % 4 != 0)
-        {
-            booLv = 0;
-            bigbooLv++;
         }
     }
 
